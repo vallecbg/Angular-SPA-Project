@@ -1,5 +1,5 @@
 ---Major---
-Get rid of the bootstrap and start using the provided angular material
+I can create module for auth components
 Check if i can remove toastr from styles
 
 ---Minor---
