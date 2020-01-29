@@ -5,17 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from "./core/core.module"
 
 import { AppComponent } from './app.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './components/auth/signin/signin.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { FooterComponent } from './components/shared/footer/footer.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +24,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    CoreModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
