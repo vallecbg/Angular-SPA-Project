@@ -1,42 +1,10 @@
-<!-- <app-navigation></app-navigation> -->
-<!-- <div>
-    <router-outlet></router-outlet>
-</div> -->
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
-    <mat-nav-list>
-      <div>
-        <a routerLink="/auth/signup">
-            Sign Up
-        </a>
-        <a routerLink="/auth/signin">
-            Sign In
-        </a>
-        <a routerLink="/"> </a>
-        <a routerLink="/"> </a>
-      </div>
-    </mat-nav-list>
+    <sidebar-list></sidebar-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div><a routerLink="/">Home</a></div>
-      <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="10px">
-        <li>
-          <a routerLink="/auth/signin">Sign In</a>
-        </li>
-        <li>
-          <a routerLink="/auth/signup">Sign Up</a>
-        </li>
-        <li>
-          <a routerLink="/auth/logout">Logout</a>
-        </li>
-      </ul>
-    </mat-toolbar>
+    <app-toolbar (onToggleSidenav)="sidenav.toggle()"></app-toolbar>
     <main>
       <router-outlet></router-outlet>
     </main>

@@ -11,14 +11,20 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
-import { FooterComponent } from './components/shared/footer/footer.component'
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
+import { SidebarListComponent } from './components/shared/sidebar-list/sidebar-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    ToolbarComponent,
+    SidebarListComponent
   ],
   imports: [
     BrowserModule,
