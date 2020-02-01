@@ -1,26 +1,33 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form>
-      <div class="form-group">
-        <label for="email">Mail</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="form-control"
-        />
-      </div>
-      <button class="btn btn-primary" type="submit">Sign Up</button>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form (ngSubmit)="signup()" [formGroup]="signupForm" class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input formControlName="email" matInput type="email" placeholder="Your email...">
+          <mat-error *ngIf="signupForm.get('email').hasError('required')">Email is required.</mat-error>
+          <mat-error *ngIf="signupForm.get('email').hasError('email')">Email is invalid.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="password" matInput type="password" placeholder="Your password...">
+          <mat-error *ngIf="signupForm.get('password').hasError('required')">Password is required.</mat-error>
+          <mat-error *ngIf="signupForm.get('password').hasError('minlength')">Password must be at least 6 symbols.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Birthday...">
+          <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint>Birthday is required.</mat-hint>
+        </mat-form-field>
+      </mat-card-content>
+      <button [disabled]="signupForm.invalid" mat-stroked-button color="accent" class="btn-block">
+        Register
+      </button>
     </form>
-  </div>
+  </mat-card>
 </div>

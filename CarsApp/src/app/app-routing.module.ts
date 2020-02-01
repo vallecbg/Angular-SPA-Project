@@ -5,12 +5,12 @@ import { SignupComponent } from "./components/auth/signup/signup.component";
 
 const routes: Route[] = [
   {
-    path: 'auth',
+    path: "auth",
     children: [
-      { path: 'signin', component: SigninComponent },
-      { path: 'signup', component: SignupComponent }
+      { path: "signin", component: SigninComponent },
+      { path: "signup", component: SignupComponent }
     ]
-  }
+  },
   //TODO: create cars component
   // {path: "cars", children: [
   //   {path: "", pathMatch: "full", component:}

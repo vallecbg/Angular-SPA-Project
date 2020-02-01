@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module'
@@ -24,7 +24,7 @@ import { SidebarListComponent } from './components/shared/sidebar-list/sidebar-l
     FooterComponent,
     HomeComponent,
     ToolbarComponent,
-    SidebarListComponent
+    SidebarListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +34,11 @@ import { SidebarListComponent } from './components/shared/sidebar-list/sidebar-l
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

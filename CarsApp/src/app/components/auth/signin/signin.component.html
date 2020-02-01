@@ -1,29 +1,26 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form #f="ngForm" (ngSubmit)="login()">
-      <div class="form-group">
-        <label for="email">Mail</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          ngModel
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          required
-          type="password"
-          id="password"
-          name="password"
-          ngModel
-          class="form-control"
-        />
-      </div>
-      <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Sign In</button>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input formControlName="email" matInput type="email" placeholder="Your email...">
+          <mat-error *ngIf="loginForm.get('email').hasError('required')">Email is required.</mat-error>
+          <mat-error *ngIf="loginForm.get('email').hasError('email')">Email is invalid.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="password" matInput type="password" placeholder="Your password...">
+          <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required.</mat-error>
+          <mat-error *ngIf="loginForm.get('password').hasError('minlength')">Password must be at least 6 symbols.</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <button [disabled]="loginForm.invalid" mat-stroked-button color="accent" class="btn-block">
+        Log in
+      </button>
     </form>
-  </div>
+  </mat-card>
 </div>
