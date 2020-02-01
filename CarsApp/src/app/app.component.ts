@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as firebase from "firebase";
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: "app-root",
@@ -7,12 +7,12 @@ import * as firebase from "firebase";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  title = "app";
+
+  constructor(
+    private authService: AuthService
+  ){}
 
   ngOnInit(): void {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDfGtQe_YE0YRkpmdY1U1-E8asRZJIw6aw",
-      authDomain: "ng-carsapp.firebaseapp.com"
-    });
+    this.authService.initializeAuthState();
   }
 }

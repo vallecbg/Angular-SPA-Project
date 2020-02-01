@@ -4,21 +4,25 @@
       <mat-icon>home</mat-icon>
       Home
     </a>
-    <a mat-list-item routerLink="/auth/signin">
-      <mat-icon>account_circle</mat-icon>
-      Sign In
-    </a>
-    <a mat-list-item routerLink="/auth/signup">
-      <mat-icon>perm_identity</mat-icon>
-      Sign Up
-    </a>
-    <a mat-list-item routerLink="/cars">
-      <mat-icon>directions_car</mat-icon>
-      Search Car
-    </a>
-    <a (click)="logout()" class="logout-link" mat-list-item>
-      <mat-icon>eject</mat-icon>
-      Logout
-    </a>
+    <ng-template [ngIf]="!isAuth">
+      <a mat-list-item routerLink="/auth/signin">
+        <mat-icon>account_circle</mat-icon>
+        Sign In
+      </a>
+      <a mat-list-item routerLink="/auth/signup">
+        <mat-icon>perm_identity</mat-icon>
+        Sign Up
+      </a>
+    </ng-template>
+    <ng-template [ngIf]="isAuth">
+      <a mat-list-item routerLink="/cars">
+        <mat-icon>directions_car</mat-icon>
+        Search Car
+      </a>
+      <a (click)="logout()" class="logout-link" mat-list-item>
+        <mat-icon>eject</mat-icon>
+        Logout
+      </a>
+    </ng-template>
   </div>
 </mat-nav-list>

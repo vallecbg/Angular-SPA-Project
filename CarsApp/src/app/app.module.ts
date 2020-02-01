@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
@@ -15,6 +17,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { SidebarListComponent } from './components/shared/sidebar-list/sidebar-list.component';
+
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { SidebarListComponent } from './components/shared/sidebar-list/sidebar-l
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],

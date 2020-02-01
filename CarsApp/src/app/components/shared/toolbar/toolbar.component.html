@@ -4,14 +4,18 @@
   </button>
   <div><a routerLink="/">Home</a></div>
   <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="10px">
+    <ng-template [ngIf]="!isAuth">
+      <li>
+        <a routerLink="/auth/signin">Login</a>
+      </li>
+      <li>
+        <a routerLink="/auth/signup">Sign Up</a>
+      </li>
+    </ng-template>
+    <ng-template [ngIf]="isAuth">
     <li>
-      <a routerLink="/auth/signin">Sign In</a>
+      <a (click)="logout()" style="cursor: pointer;">Logout</a>
     </li>
-    <li>
-      <a routerLink="/auth/signup">Sign Up</a>
-    </li>
-    <li>
-      <a routerLink="/auth/logout">Logout</a>
-    </li>
+  </ng-template>
   </ul>
 </mat-toolbar>
