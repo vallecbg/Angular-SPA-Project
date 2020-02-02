@@ -1,5 +1,9 @@
 ---Major---
+Add toastr notifications
+Remove the duplicate css from signup and signin components
 I can create module for auth components
 Check if i can remove toastr from styles
 
 ---Minor---
+Add particles - https://stackoverflow.com/questions/44293797/how-to-import-and-use-particles-js-in-an-angular-angular2-angular4-app
+Add sms or email address verification
