@@ -2,8 +2,11 @@ import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { SigninComponent } from "./components/auth/signin/signin.component";
 import { SignupComponent } from "./components/auth/signup/signup.component";
+import { HomeComponent } from './components/home/home.component';
+import { CreateListingComponent } from './components/listing/create-listing/create-listing.component';
 
 const routes: Route[] = [
+  { path:"", component: HomeComponent },
   {
     path: "auth",
     children: [
@@ -11,10 +14,12 @@ const routes: Route[] = [
       { path: "signup", component: SignupComponent }
     ]
   },
-  //TODO: create cars component
-  // {path: "cars", children: [
-  //   {path: "", pathMatch: "full", component:}
-  // ]}
+  {
+    path: "listing",
+    children: [
+      { path: "create-listing", component: CreateListingComponent }
+    ]
+  },
 ];
 
 @NgModule({
