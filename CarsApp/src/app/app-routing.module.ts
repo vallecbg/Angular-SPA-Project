@@ -1,25 +1,29 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
+import { AuthGuard } from './core/guards/auth-guard.guard';
+
 import { SigninComponent } from "./components/auth/signin/signin.component";
 import { SignupComponent } from "./components/auth/signup/signup.component";
-import { HomeComponent } from './components/home/home.component';
-import { CreateListingComponent } from './components/listing/create-listing/create-listing.component';
+import { HomeComponent } from "./components/home/home.component";
+import { CreateListingComponent } from "./components/listing/create-listing/create-listing.component";
 
 const routes: Route[] = [
-  { path:"", component: HomeComponent },
+  { path: "", component: HomeComponent },
+  { path: "index", component: HomeComponent },
+  { path: "login", component: SigninComponent },
+  { path: "register", component: SignupComponent },
   {
-    path: "auth",
-    children: [
-      { path: "signin", component: SigninComponent },
-      { path: "signup", component: SignupComponent }
-    ]
-  },
-  {
-    path: "listing",
-    children: [
-      { path: "create-listing", component: CreateListingComponent }
-    ]
-  },
+    path: "listing", children: [
+      { path: "create", component: CreateListingComponent }
+    ], canActivate: [AuthGuard]
+  }
+  // {
+  //   path: "auth",
+  //   children: [
+  //     { path: "signin", component: SigninComponent },
+  //     { path: "signup", component: SignupComponent }
+  //   ]
+  // },
 ];
 
 @NgModule({
