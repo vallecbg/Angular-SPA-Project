@@ -1,9 +1,17 @@
 ---Major---
+improve the stylization of the listing create
+think about duplicate entities in listing creation and where can store the entities
+do i really need IListing and CreateListingModel??
+remove router from signin signup
 Add toastr notifications
+Add image upload for the listing
+Remove router from create listing, signup, signin components
 Remove the duplicate css from signup and signin components
+Check the signup form for birthday hint maybe it should be showing only when it's null
 I can create module for auth components
 Check if i can remove toastr from styles
 
 ---Minor---
 Add particles - https://stackoverflow.com/questions/44293797/how-to-import-and-use-particles-js-in-an-angular-angular2-angular4-app
 Add sms or email address verification
+Add car category
