@@ -20,15 +20,16 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [ Validators.required, Validators.minLength(6)] ],
-      birthDate: [null, Validators.required]
+      name: [null, [Validators.required]],
+      mobile: [null, [Validators.required]],
+      birthDate: [null, Validators.required],
     });
   }
 
   signup() {
-    const { email, password, birthDate } = this.signupForm.value;
+    const { email, password, birthDate, name, mobile } = this.signupForm.value;
 
-    //TODO: add the birthdate in auth service
-    this.authService.signUp(email, password);
+    this.authService.signUp(email, password, birthDate, name, mobile);
   }
 
 }

@@ -37,7 +37,7 @@ import { environment } from "src/environments/environment";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 3000, preventDuplicates: true}),
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
