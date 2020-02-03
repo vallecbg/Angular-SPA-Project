@@ -17,9 +17,43 @@
           <mat-hint>Required</mat-hint>
           <mat-error *ngIf="listingForm.get('model').hasError('required')">Model is required.</mat-error>
         </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="year" matInput type="number" placeholder="Year...">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="kilometers" matInput type="number" placeholder="Kilometers...">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="horsePower" matInput type="number" placeholder="Horse power...">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="color" matInput type="text" placeholder="Color...">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input formControlName="engineType" matInput type="text" placeholder="Engine type...">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="imageUrl" matInput type="text" placeholder="Image URL...">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input formControlName="price" matInput type="number" placeholder="Price...">
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="listingForm.get('price').hasError('required')">Price is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="description" matInput type="text" placeholder="Description...">
+        </mat-form-field>
       </mat-card-content>
       <button [disabled]="listingForm.invalid" mat-stroked-button color="accent" class="btn-block">
-        Create
+        Create Listing
       </button>
     </form>
   </mat-card>
