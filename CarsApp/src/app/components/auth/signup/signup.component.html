@@ -28,12 +28,7 @@
           <mat-error *ngIf="signupForm.get('mobile').hasError('required')">Mobile is required.</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Birthday...">
-          <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-hint>Birthday is required.</mat-hint>
-        </mat-form-field>
+        
       </mat-card-content>
       <button [disabled]="signupForm.invalid" mat-stroked-button color="accent" class="btn-block">
         Register

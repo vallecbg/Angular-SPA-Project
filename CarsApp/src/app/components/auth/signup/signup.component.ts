@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,15 +21,14 @@ export class SignupComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [ Validators.required, Validators.minLength(6)] ],
       name: [null, [Validators.required]],
-      mobile: [null, [Validators.required]],
-      birthDate: [null, Validators.required],
+      mobile: [null, [Validators.required]]
     });
   }
 
   signup() {
-    const { email, password, birthDate, name, mobile } = this.signupForm.value;
+    const { email, password, name, mobile } = this.signupForm.value;
 
-    this.authService.signUp(email, password, birthDate, name, mobile);
+    this.authService.signUp(email, password, name, mobile);
   }
 
 }

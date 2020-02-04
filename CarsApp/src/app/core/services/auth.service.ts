@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Subject, Observable, of } from "rxjs";
+import { Subject } from "rxjs";
 import { Router } from "@angular/router";
 import {
   AngularFirestore,
   AngularFirestoreDocument
 } from "@angular/fire/firestore";
 import { User } from "src/app/components/shared/models/User.model";
-import { switchMap } from "rxjs/operators";
 import { ToastrService } from 'ngx-toastr';
 import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 
@@ -16,8 +15,6 @@ import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 })
 export class AuthService {
   private _isAuth: boolean;
-  token: string;
-  user: Observable<User>;
 
   isAuthChanged = new Subject<boolean>();
   constructor(
@@ -25,19 +22,7 @@ export class AuthService {
     private afDb: AngularFirestore,
     private router: Router,
     private toastr: ToastrService
-  ) {
-    this.user = this.dbAuth.authState.pipe(
-      switchMap(user => {
-        // Logged in
-        if (user) {
-          return this.afDb.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          // Logged out
-          return of(null);
-        }
-      })
-    );
-  }
+  ) {}
 
   initializeAuthState() {
     this.dbAuth.authState.subscribe(userdata => {
@@ -51,13 +36,13 @@ export class AuthService {
     });
   }
 
-  signUp(email: string, password: string, birthDate: Date, name: string, mobile: string) {
+  signUp(email: string, password: string, name: string, mobile: string) {
     this.dbAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(data => {
-        this.pushUserData({email, birthDate, name, mobile});
+        this.pushUserData({email, name, mobile});
         this.toastr.success("Successfully registered!", "Success", ToastrConfig);
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/"]);
         console.log(data);
       })
       .catch(err => {
@@ -69,10 +54,6 @@ export class AuthService {
     this.dbAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(data => {
-        this.dbAuth.auth.currentUser.getIdToken().then((token: string) => {
-          this.token = token;
-          sessionStorage.setItem("authtoken", this.token);
-        });
         this.toastr.success("Successfully logged in!", "Success", ToastrConfig);
         this.router.navigate(["/"]);
         console.log(data);
@@ -97,14 +78,17 @@ export class AuthService {
       mobile: user.mobile
     };
 
-    return userRef.set(data, { merge: true });
+    return userRef.set(data);
   }
 
   logout() {
-    this.dbAuth.auth.signOut().then(() => {
-      this.clearToken();
+    this.dbAuth.auth.signOut()
+    .then(() => {
       this.toastr.success("Successfully logged out!", "Success", ToastrConfig);
       this.router.navigate(["/"]);
+    })
+    .catch(err => {
+      this.toastr.error(err, "Error", ToastrConfig);
     });
   }
 
@@ -112,17 +96,7 @@ export class AuthService {
     return this.dbAuth.auth.currentUser ? this.dbAuth.auth.currentUser.uid : "";
   }
 
-  getToken() {
-    this.token = sessionStorage.getItem("authtoken");
-    return this.token;
-  }
-
-  clearToken(){
-    this.token = null;
-    sessionStorage.clear();
-  }
-
   isAuth(): boolean {
-    return this.token != null;
+    return this._isAuth;
   }
 }

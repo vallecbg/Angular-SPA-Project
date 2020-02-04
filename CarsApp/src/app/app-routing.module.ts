@@ -17,13 +17,6 @@ const routes: Route[] = [
       { path: "create", component: CreateListingComponent }
     ], canActivate: [AuthGuard]
   }
-  // {
-  //   path: "auth",
-  //   children: [
-  //     { path: "signin", component: SigninComponent },
-  //     { path: "signup", component: SignupComponent }
-  //   ]
-  // },
 ];
 
 @NgModule({
