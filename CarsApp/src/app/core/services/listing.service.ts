@@ -3,8 +3,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { IListing } from 'src/app/components/shared/models/listing.model';
 import { CreateListingModel } from 'src/app/components/shared/models/create-listing.model';
-import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators'
+import { Observable, of } from 'rxjs';
+import {map, catchError} from 'rxjs/operators'
+import { ToastrService } from 'ngx-toastr';
+import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 
 @Injectable({
     providedIn: "root"
@@ -14,17 +16,19 @@ export class ListingService {
 
     constructor(
         private afDb: AngularFirestore, 
-        private router: Router
+        private router: Router,
+        private toastr: ToastrService
     ){}
 
     createListing(payload: CreateListingModel) {
         //TODO: think about duplicate entities
         this.afDb.collection<CreateListingModel>("listings").add(payload)
             .then((data) => {
+                this.toastr.success("Successfully created listing!", "Success", ToastrConfig);
                 this.router.navigate(["/"]);
             })
             .catch((err) => {
-                console.log(err);
+                this.toastr.error(err, "Error", ToastrConfig);
             })
     }
 
@@ -35,7 +39,11 @@ export class ListingService {
             map(changes => {
               const data = changes.payload.data();
               const id = changes.payload.id;
-              return { id, ...data };
+              if(!data){
+                this.toastr.error("The listing is not found!", "Error", ToastrConfig);
+                this.router.navigate(['/']);
+              }
+              return {id, ...data};
             }))
       }
 }

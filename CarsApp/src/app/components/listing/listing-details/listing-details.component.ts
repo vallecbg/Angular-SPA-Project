@@ -4,6 +4,7 @@ import { ListingService } from 'src/app/core/services/listing.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ToastrConfig } from '../../shared/models/toastr.config';
 
 @Component({
   selector: 'app-listing-details',
@@ -29,7 +30,8 @@ export class ListingDetailsComponent implements OnInit {
     })
 
     this.listingService.getListing(this.listingId).subscribe((data) => {
-      console.log(data);
+      this.listing = data;
+      console.log(this.listing);
     })
   }
 }
