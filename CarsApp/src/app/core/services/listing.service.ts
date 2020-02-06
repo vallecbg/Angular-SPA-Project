@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { IListing } from 'src/app/components/shared/models/listing.model';
 import { CreateListingModel } from 'src/app/components/shared/models/create-listing.model';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators'
 
 @Injectable({
     providedIn: "root"
@@ -25,4 +27,15 @@ export class ListingService {
                 console.log(err);
             })
     }
+
+    getListing(id: string): Observable<IListing> {
+        const listingDocuments = this.afDb.doc<IListing>('listings/' + id);
+        return listingDocuments.snapshotChanges()
+          .pipe(
+            map(changes => {
+              const data = changes.payload.data();
+              const id = changes.payload.id;
+              return { id, ...data };
+            }))
+      }
 }

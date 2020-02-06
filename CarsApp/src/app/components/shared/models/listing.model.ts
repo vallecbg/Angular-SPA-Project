@@ -1,6 +1,5 @@
 export interface IListing {
-    _id: string,
-    //title: string,
+    id: string,
     description?: string,
     make: string,
     model: string,
@@ -12,6 +11,5 @@ export interface IListing {
     engineType?: string,
     price: number,
     sellerId: string,
-    creationDate: Date,
-    expirationDate: Date
+    creationDate: Date
 }

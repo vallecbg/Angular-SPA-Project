@@ -22,6 +22,7 @@ import { SidebarListComponent } from "./components/shared/sidebar-list/sidebar-l
 import { CreateListingComponent } from "./components/listing/create-listing/create-listing.component";
 
 import { environment } from "src/environments/environment";
+import { ListingDetailsComponent } from './components/listing/listing-details/listing-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { environment } from "src/environments/environment";
     HomeComponent,
     ToolbarComponent,
     SidebarListComponent,
-    CreateListingComponent
+    CreateListingComponent,
+    ListingDetailsComponent
   ],
   imports: [
     BrowserModule,
