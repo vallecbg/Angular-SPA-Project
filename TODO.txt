@@ -1,4 +1,5 @@
 ---Major---
+Fix date is not showing correctly
 Improve the stylization of listing details page
 Don't forget to get back canActivate: [AuthGuard] in routing
 I need to make a method for getting user info in authservice or make another userservice
