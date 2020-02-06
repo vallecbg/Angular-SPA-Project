@@ -1,3 +1,4 @@
+<ng-container *ngIf="listing">
 <img [src]="listing.imageUrl">
 <h1>{{listing.make}} {{listing.model}}</h1>
 <p>Year: {{listing.year}}
@@ -9,3 +10,4 @@ price: {{listing.price}}
 sellerId: {{listing.sellerId}}
 creationDate: {{listing.creationDate}}
 </p>
+</ng-container>
