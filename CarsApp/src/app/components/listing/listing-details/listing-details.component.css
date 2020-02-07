@@ -87,14 +87,13 @@
 
 
 
-.sep-section-heading h2 em {
-    font-style: normal;
-    color: #f4c23d
+.sep-section-heading h4 em {
+  font-style: normal;
+  color: #f4c23d
 }
 
 .more-details .sep-section-heading {
   margin-top: 0px
-
 }
 
 .more-details .item .info-list ul {
@@ -159,4 +158,15 @@
   .more-details .item .contact-info span {
     text-align: center
   }
+}
+
+
+img {
+  margin: auto;
+  height: auto;
+  width: 100%;
+}
+
+ngb-carousel {
+  background-color: black;
 }

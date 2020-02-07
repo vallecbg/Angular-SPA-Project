@@ -5,55 +5,46 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div id="single-car">
-              <ngb-carousel *ngIf="listing.imageUrl">
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="listing.imageUrl">
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="listing.imageUrl">
-                  </div>
-                </ng-template>
-                <!-- <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="images[1]" alt="Random second slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>No mouse events...</h3>
-                    <p>This carousel doesn't pause or resume on mouse events</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="images[2]"  alt="Random third slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>No keyboard...</h3>
-                    <p>This carousel uses customized default values.</p>
-                  </div>
-                </ng-template>
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="images[3]" alt="Random fourth slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>And no wrap after last slide.</h3>
-                    <p>This carousel uses customized default values.</p>
-                  </div>
-                </ng-template> -->
+              <ngb-carousel *ngIf="listing.images && listing.images[0].url !== ''">
+                <div *ngFor="let img of listing.images">
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img [src]="img.url">
+                    </div>
+                  </ng-template>
+                </div>
               </ngb-carousel>
-							<!-- <div *ngIf="listing.imageUrl">
-                <img mat-card-image [src]="listing.imageUrl" />
-              </div> -->
 					  </div>
 					</div>
 					<div class="col-md-6">
 						<div class="car-details">
-            <h4>{{listing.make}} {{listing.model}}</h4>
-							<span>${{listing.price}}</span>
-            <p>{{listing.description}}</p>
+            <h3>{{listing.make}} {{listing.model}}</h3>
+              <span>${{listing.price}}</span>
+              <mat-divider></mat-divider>
+              <section>
+                <div class="more-details">
+                  <div class="container">
+                    <div class="row">
+                        <div class="item">
+                          <div class="sep-section-heading">
+                            <h4>Seller <em>Information</em></h4>
+                          </div>
+                        <h5>Name: {{seller.name}}</h5>
+                        <div class="contact-info">
+                          <div class="row">
+                            <div class="phone col-md-12 col-sm-6 col-xs-6">
+                            <i *ngIf="seller.mobile"><mat-icon>phone_in_talk</mat-icon></i><span>{{seller.mobile}}</span>
+                            </div>
+                            <div class="mail col-md-12 col-sm-6 col-xs-6">
+                            <i *ngIf="seller.email"><mat-icon>email</mat-icon></i><span>{{seller.email}}</span>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </section>
 							<div class="container">
 								<div class="row">
 									<ul class="car-info col-md-6">
@@ -68,15 +59,19 @@
 									</ul>
 								</div>
 							</div>
-							<div class="similar-info">
+							<!-- <div class="similar-info">
 								<div class="primary-button">
 									<a href="#">Add Offer <i class="fa fa-dollar"></i></a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
         </div>
-        <section>
+        <div class="row">
+          <h2>Additional info</h2>
+          <p>{{listing.description}}</p>
+        </div>
+        <!-- <section>
           <div class="more-details">
             <div class="container">
               <div class="row">
@@ -101,7 +96,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
 			</div>
 		</div>
   </div>

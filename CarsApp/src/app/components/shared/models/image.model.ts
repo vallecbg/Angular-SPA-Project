@@ -1,3 +1,3 @@
 export interface ImageEntity {
-    imageUrl: string
+    url: string
 }

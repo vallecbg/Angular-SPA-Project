@@ -34,7 +34,6 @@ export class ListingDetailsComponent implements OnInit {
 
     this.listingService.getListing(this.listingId).subscribe((data) => {
       this.listing = data;
-      this.setupCarousel();
       console.log(this.listing);
       this.authService.getUser(this.listing.sellerId).subscribe((data) => {
         this.seller = data;
@@ -43,10 +42,5 @@ export class ListingDetailsComponent implements OnInit {
     })
 
     
-  }
-
-  setupCarousel(){
-    this.config.interval = 5000;
-    this.config.pauseOnHover = false; 
   }
 }
