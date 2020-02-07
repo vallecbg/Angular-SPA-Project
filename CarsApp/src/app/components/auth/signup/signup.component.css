@@ -34,7 +34,7 @@ body {
   color: #ffffff;
 }
 
-.box {
+/* .box {
   position: relative;
   top: 0;
   opacity: 1;
@@ -48,7 +48,7 @@ body {
   -ms-transform: scale(1);
   z-index: 5;
   max-width: 330px;
-}
+} */
 
 .box.back {
   transform: scale(.95);
