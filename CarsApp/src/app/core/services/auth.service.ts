@@ -6,7 +6,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument
 } from "@angular/fire/firestore";
-import { User } from "src/app/components/shared/models/User.model";
+import { IUser } from "src/app/components/shared/models/User.model";
 import { ToastrService } from 'ngx-toastr';
 import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 import { map } from 'rxjs/operators';
@@ -68,7 +68,7 @@ export class AuthService {
 
     user.uid = this.getUserId();
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<User> = this.afDb.doc(
+    const userRef: AngularFirestoreDocument<IUser> = this.afDb.doc(
       `users/${user.uid}`
     );
 
@@ -82,8 +82,8 @@ export class AuthService {
     return userRef.set(data);
   }
 
-  getUser(id: string): Observable<User> {
-    const userDocuments = this.afDb.doc<User>('users/' + id);
+  getUser(id: string): Observable<IUser> {
+    const userDocuments = this.afDb.doc<IUser>('users/' + id);
     return userDocuments.snapshotChanges()
       .pipe(
         map(changes => {

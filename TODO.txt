@@ -14,6 +14,7 @@ Remove the duplicate css from signup and signin components
 Check the signup form for birthday hint maybe it should be showing only when it's null
 I can create module for auth components
 Check if i can remove toastr from styles
+Add currency type of listing
 
 --Questions--
 Where to put toastr - in service or in components?
