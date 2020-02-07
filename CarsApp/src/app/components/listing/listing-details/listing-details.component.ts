@@ -16,7 +16,8 @@ export class ListingDetailsComponent implements OnInit {
   listing: IListing;
   listingId: string;
   seller: IUser;
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  // images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  
 
 
   constructor(

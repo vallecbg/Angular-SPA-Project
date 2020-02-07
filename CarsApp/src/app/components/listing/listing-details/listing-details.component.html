@@ -5,17 +5,18 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div id="single-car">
-              <ngb-carousel *ngIf="images">
+              <ngb-carousel *ngIf="listing.imageUrl">
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
-                    <img [src]="images[0]" alt="Random first slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>10 seconds between slides...</h3>
-                    <p>This carousel uses customized default values.</p>
+                    <img [src]="listing.imageUrl">
                   </div>
                 </ng-template>
                 <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="listing.imageUrl">
+                  </div>
+                </ng-template>
+                <!-- <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
                     <img [src]="images[1]" alt="Random second slide">
                   </div>
@@ -41,7 +42,7 @@
                     <h3>And no wrap after last slide.</h3>
                     <p>This carousel uses customized default values.</p>
                   </div>
-                </ng-template>
+                </ng-template> -->
               </ngb-carousel>
 							<!-- <div *ngIf="listing.imageUrl">
                 <img mat-card-image [src]="listing.imageUrl" />
