@@ -9,7 +9,9 @@ export interface IListing {
     color?: string,
     imageUrl?: string,
     engineType?: string,
+    transmission?: string,
     price: number,
     sellerId: string,
-    creationDate: Date
+    //TODO: think about an intelligent way to fix the vs code seeing this as a problem
+    creationDate: any
 }

@@ -1,13 +1,139 @@
 <ng-container *ngIf="listing">
-<img [src]="listing.imageUrl">
-<h1>{{listing.make}} {{listing.model}}</h1>
-<p>Year: {{listing.year}}
-Kilometers: {{listing.kilometers}}
-horsePower: {{listing.horsePower}}
-color: {{listing.color}}
-engineType: {{listing.engineType}}
-price: {{listing.price}}
-sellerId: {{listing.sellerId}}
-creationDate: {{listing.creationDate}}
-</p>
+  <div class="recent-car single-car">
+		<div class="container">
+			<div class="recent-car-content">
+				<div class="row">
+					<div class="col-md-6">
+						<div id="single-car">
+              <ngb-carousel *ngIf="images">
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[0]" alt="Random first slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>10 seconds between slides...</h3>
+                    <p>This carousel uses customized default values.</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[1]" alt="Random second slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>No mouse events...</h3>
+                    <p>This carousel doesn't pause or resume on mouse events</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[2]"  alt="Random third slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>No keyboard...</h3>
+                    <p>This carousel uses customized default values.</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[3]" alt="Random fourth slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>And no wrap after last slide.</h3>
+                    <p>This carousel uses customized default values.</p>
+                  </div>
+                </ng-template>
+              </ngb-carousel>
+							<!-- <div *ngIf="listing.imageUrl">
+                <img mat-card-image [src]="listing.imageUrl" />
+              </div> -->
+					  </div>
+					</div>
+					<div class="col-md-6">
+						<div class="car-details">
+            <h4>{{listing.make}} {{listing.model}}</h4>
+							<span>${{listing.price}}</span>
+            <p>{{listing.description}}</p>
+							<div class="container">
+								<div class="row">
+									<ul class="car-info col-md-6">
+										<li><i class="flaticon flaticon-calendar"></i><p>2016/2017</p></li>
+										<li><i class="flaticon flaticon-speed"></i><p>240p/h</p></li>
+										<li><i class="flaticon flaticon-road"></i><p>20.000km - 40.000km</p></li>
+										<li><i class="flaticon flaticon-fuel"></i><p>Diesel</p></li>
+									</ul>
+									<ul class="car-info col-md-6">
+										<li><i class="flaticon flaticon-art"></i><p>White</p></li>
+										<li><i class="flaticon flaticon-shift"></i><p>Automatic</p></li>
+										<li><i class="flaticon flaticon-car"></i><p>4/5</p></li>
+										<li><i class="flaticon flaticon-motor"></i><p>3000cm3</p></li>
+									</ul>
+								</div>
+							</div>
+							<div class="similar-info">
+								<div class="primary-button">
+									<a href="#">Add Offer <i class="fa fa-dollar"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </ng-container>
+
+<!-- <ng-container *ngIf="listing">
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <mat-card class="listing-details">
+        <mat-card-header >
+          <mat-card-title>
+            <span class="listingHeaderInfo">{{ listing.make }} {{ listing.model }}</span>
+            <span class="listingPrice">${{ listing.price }}</span>
+          </mat-card-title>
+        </mat-card-header>
+        <div *ngIf="listing.imageUrl">
+          <img mat-card-image [src]="listing.imageUrl" />
+        </div>
+        <mat-card-content>
+          <ul class="listingData">
+            <li>Make:</li>
+            <li>{{ listing.make }}</li>
+            <li>Model:</li>
+            <li>{{ listing.model }}</li>
+
+            <div *ngIf="listing.year">
+              <li>Year of manufacture:</li>
+              <li>{{ listing.year }}</li>
+            </div>
+
+            <div *ngIf="listing.engineType">
+              <li>Engine type:</li>
+              <li>{{ listing.engineType }}</li>
+            </div>
+
+            <div *ngIf="listing.horsePower">
+              <li>Horse power:</li>
+              <li>{{ listing.horsePower }} hp.</li>
+            </div>
+
+            <div *ngIf="listing.transmission">
+              <li>Transmission type:</li>
+              <li>{{ listing.transmission }}</li>
+            </div>
+
+            <div *ngIf="listing.kilometers">
+              <li>Mileage:</li>
+              <li>{{ listing.kilometers }}</li>
+            </div>
+
+            <div *ngIf="listing.color">
+              <li>Color:</li>
+              <li>{{ listing.color }}</li>
+            </div>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container> -->

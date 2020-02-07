@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -6,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { MaterialModule } from "./material.module";
+import { BootstrapModule } from "./bootstrap.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -22,7 +24,7 @@ import { SidebarListComponent } from "./components/shared/sidebar-list/sidebar-l
 import { CreateListingComponent } from "./components/listing/create-listing/create-listing.component";
 
 import { environment } from "src/environments/environment";
-import { ListingDetailsComponent } from './components/listing/listing-details/listing-details.component';
+import { ListingDetailsComponent } from "./components/listing/listing-details/listing-details.component";
 
 @NgModule({
   declarations: [
@@ -38,8 +40,9 @@ import { ListingDetailsComponent } from './components/listing/listing-details/li
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    ToastrModule.forRoot({timeOut: 3000, preventDuplicates: true}),
+    ToastrModule.forRoot({ timeOut: 3000, preventDuplicates: true }),
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -48,7 +51,8 @@ import { ListingDetailsComponent } from './components/listing/listing-details/li
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BootstrapModule
   ],
   //TODO: check
   providers: [AngularFireDatabase],

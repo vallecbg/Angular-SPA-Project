@@ -6,6 +6,7 @@ export interface CreateListingModel {
     horsePower?: number,
     color?: string,
     engineType?: string,
+    transmission?: string,
     imageUrl?: string,
     price: number,
     description?: string,

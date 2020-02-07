@@ -28,6 +28,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       horsePower: [null, null],
       color: [null, null],
       engineType: [null, null],
+      transmission: [null, null],
       imageUrl: [null, null],
       price: [null, [Validators.required]],
       description: [null, null]
@@ -48,6 +49,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       horsePower,
       color,
       engineType,
+      transmission,
       imageUrl,
       price,
       description
@@ -64,6 +66,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       horsePower,
       color,
       engineType,
+      transmission,
       imageUrl,
       price,
       description,

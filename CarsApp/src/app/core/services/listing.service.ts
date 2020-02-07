@@ -38,7 +38,7 @@ export class ListingService {
           .pipe(
             map(changes => {
               const data = changes.payload.data();
-              const id = changes.payload.id;
+              //console.log(data.creationDate.seconds);
               if(!data){
                 this.toastr.error("The listing is not found!", "Error", ToastrConfig);
                 this.router.navigate(['/']);
