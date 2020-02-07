@@ -56,16 +56,14 @@
 							<div class="container">
 								<div class="row">
 									<ul class="car-info col-md-6">
-										<li><i class="flaticon flaticon-calendar"></i><p>2016/2017</p></li>
-										<li><i class="flaticon flaticon-speed"></i><p>240p/h</p></li>
-										<li><i class="flaticon flaticon-road"></i><p>20.000km - 40.000km</p></li>
-										<li><i class="flaticon flaticon-fuel"></i><p>Diesel</p></li>
+                  <li *ngIf="listing.year"><i><mat-icon>calendar_today</mat-icon></i><p>{{listing.year}}</p></li>
+                  <li *ngIf="listing.horsePower"><i><mat-icon>speed</mat-icon></i><p>{{listing.horsePower}} hp.</p></li>
+                  <li *ngIf="listing.kilometers"><i><mat-icon>directions_car</mat-icon></i><p>{{listing.kilometers}} km.</p></li>
+                  <li *ngIf="listing.engineType"><i><mat-icon>local_gas_station</mat-icon></i><p>{{listing.engineType}} engine</p></li>
 									</ul>
 									<ul class="car-info col-md-6">
-										<li><i class="flaticon flaticon-art"></i><p>White</p></li>
-										<li><i class="flaticon flaticon-shift"></i><p>Automatic</p></li>
-										<li><i class="flaticon flaticon-car"></i><p>4/5</p></li>
-										<li><i class="flaticon flaticon-motor"></i><p>3000cm3</p></li>
+										<li *ngIf="listing.color"><i><mat-icon>color_lens</mat-icon></i><p>{{listing.color}} color</p></li>
+                    <li *ngIf="listing.transmission"><i><mat-icon>filter_tilt_shift</mat-icon></i><p>{{listing.transmission}} transmission</p></li>
 									</ul>
 								</div>
 							</div>
