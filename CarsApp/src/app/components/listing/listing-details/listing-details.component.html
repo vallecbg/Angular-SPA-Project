@@ -1,4 +1,4 @@
-<ng-container *ngIf="listing">
+<ng-container *ngIf="listing && seller">
   <div class="recent-car single-car">
 		<div class="container">
 			<div class="recent-car-content">
@@ -74,10 +74,38 @@
 							</div>
 						</div>
 					</div>
-				</div>
+        </div>
+        <section>
+          <div class="more-details">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="item">
+                    <div class="sep-section-heading">
+                      <h2>Seller <em>Information</em></h2>
+                    </div>
+                  <h4>Name: {{seller.name}}</h4>
+                    <div class="contact-info">
+                      <div class="row">
+                        <div class="phone col-md-12 col-sm-6 col-xs-6">
+                        <i *ngIf="seller.mobile"><mat-icon>phone_in_talk</mat-icon></i><span>{{seller.mobile}}</span>
+                        </div>
+                        <div class="mail col-md-12 col-sm-6 col-xs-6">
+                        <i *ngIf="seller.email"><mat-icon>email</mat-icon></i><span>{{seller.email}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 			</div>
 		</div>
-	</div>
+  </div>
+  
+  
 </ng-container>
 
 <!-- <ng-container *ngIf="listing">

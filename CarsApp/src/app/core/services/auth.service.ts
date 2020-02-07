@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Subject } from "rxjs";
+import { Subject, Observable } from "rxjs";
 import { Router } from "@angular/router";
 import {
   AngularFirestore,
@@ -9,6 +9,7 @@ import {
 import { User } from "src/app/components/shared/models/User.model";
 import { ToastrService } from 'ngx-toastr';
 import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: "root"
@@ -79,6 +80,16 @@ export class AuthService {
     };
 
     return userRef.set(data);
+  }
+
+  getUser(id: string): Observable<User> {
+    const userDocuments = this.afDb.doc<User>('users/' + id);
+    return userDocuments.snapshotChanges()
+      .pipe(
+        map(changes => {
+          const data = changes.payload.data();
+          return {...data};
+        }))
   }
 
   logout() {
