@@ -1,7 +1,7 @@
 ---Major---
-Fix date is not showing correctly
-Improve the stylization of listing details page
 Don't forget to get back canActivate: [AuthGuard] in routing
+Add footer
+Add unlimited number of images for the listing
 I need to make a method for getting user info in authservice or make another userservice
 think about duplicate entities in listing creation and where can store the entities
 do i really need IListing and CreateListingModel??
