@@ -15,6 +15,7 @@ Check the signup form for birthday hint maybe it should be showing only when it'
 I can create module for auth components
 Check if i can remove toastr from styles
 Add currency type of listing
+https://material.angular.io/components/form-field/overview
 
 --Questions--
 Where to put toastr - in service or in components?

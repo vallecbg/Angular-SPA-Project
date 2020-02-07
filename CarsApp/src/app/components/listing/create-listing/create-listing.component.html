@@ -42,9 +42,16 @@
           <input formControlName="transmission" matInput type="text" placeholder="Transmission type...">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input formControlName="imageUrl" matInput type="text" placeholder="Image URL...">
-        </mat-form-field>
+        
+        <div formArrayName="images">
+          <div *ngFor="let item of images.controls; let imageIndex=index" [formGroupName]="imageIndex">
+            <mat-form-field class="example-full-width">
+            <input formControlName="url" matInput type="text" placeholder="Image Url..."/>
+            <button type="button" color="warn" mat-mini-fab matSuffix (click)="deleteImage(imageIndex)"><mat-icon>delete</mat-icon></button>
+            </mat-form-field>
+            </div>
+          </div>
+          <button type="button" mat-raised-button color="primary" (click)="addImage()">Add image</button>
         
         <mat-form-field class="example-full-width">
           <input formControlName="price" matInput type="number" placeholder="Price...">
@@ -53,12 +60,14 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input formControlName="description" matInput type="text" placeholder="Description...">
+          <textarea formControlName="description" matInput type="text" placeholder="Description..."></textarea>
         </mat-form-field>
       </mat-card-content>
-      <button [disabled]="listingForm.invalid" mat-stroked-button color="accent" class="btn-block">
+      <button [disabled]="listingForm.invalid" mat-stroked-button color="primary" class="btn-block">
         Create Listing
       </button>
     </form>
+
+    {{this.listingForm.value | json}}
   </mat-card>
 </div>

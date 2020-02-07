@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ListingService } from "src/app/core/services/listing.service";
 import { AuthService } from "src/app/core/services/auth.service";
@@ -29,10 +29,22 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       color: [null, null],
       engineType: [null, null],
       transmission: [null, null],
-      imageUrl: [null, null],
+      images: this.fb.array([this.fb.group({url: ''})]),
       price: [null, [Validators.required]],
       description: [null, null]
     });
+  }
+
+  get images(){
+    return this.listingForm.get('images') as FormArray;
+  }
+
+  addImage(){
+    this.images.push(this.fb.group({url: ''}));
+  }
+
+  deleteImage(index){
+    this.images.removeAt(index);
   }
 
   ngOnDestroy() {
@@ -50,7 +62,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       color,
       engineType,
       transmission,
-      imageUrl,
+      images,
       price,
       description
     } = this.listingForm.value;
@@ -67,7 +79,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       color,
       engineType,
       transmission,
-      imageUrl,
+      images,
       price,
       description,
       sellerId,

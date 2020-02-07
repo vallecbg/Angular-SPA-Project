@@ -1,3 +1,5 @@
+import { ImageEntity } from './image.model';
+
 export interface CreateListingModel {
     make: string,
     model: string,
@@ -7,7 +9,7 @@ export interface CreateListingModel {
     color?: string,
     engineType?: string,
     transmission?: string,
-    imageUrl?: string,
+    images?: ImageEntity[],
     price: number,
     description?: string,
     sellerId: string,

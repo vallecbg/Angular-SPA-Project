@@ -1,3 +1,5 @@
+import { ImageEntity } from './image.model';
+
 export interface IListing {
     id: string,
     description?: string,
@@ -7,7 +9,7 @@ export interface IListing {
     kilometers?: number,
     horsePower?: number,
     color?: string,
-    imageUrl?: string,
+    images?: ImageEntity[],
     engineType?: string,
     transmission?: string,
     price: number,
