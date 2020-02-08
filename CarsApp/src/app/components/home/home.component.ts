@@ -14,10 +14,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) { }
 
+  get isAuthFromService(){
+    return this.authService.isAuth();
+  }
+
   ngOnInit() {
     this.isAuthSub = this.authService.isAuthChanged.subscribe((data) => {
       this.isAuth = data;
     });
+    this.isAuth = this.isAuthFromService;
   }
 
   ngOnDestroy() {
