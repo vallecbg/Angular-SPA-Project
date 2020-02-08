@@ -1,0 +1,48 @@
+<section>
+    <div class="recent-cars">
+        <div class="container">
+            <div class="recent-car-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <div class="icon">
+                                <i class="fa fa-car"></i>
+                            </div>
+                            <div class="text-content">
+                                <h2>Recent Cars</h2>
+                                <span>Check our recent posts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngFor="let listing of listings">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="car-item wow fadeIn" data-wow-duration="0.75s">
+                                <div class="thumb-content">
+                                    <div class="car-banner">
+                                        <a routerLink="/listing/details/{{listing.id}}">For Sale</a>
+                                    </div>
+                                    <div class="thumb-inner">
+                                        <a routerLink="/listing/details/{{listing.id}}"><img *ngIf="listing.images" [src]="listing.images[0].url" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="down-content">
+                                <a routerLink="/listing/details/{{listing.id}}"><h4>{{listing.make}} {{listing.model}}</h4></a>
+                                <span>${{listing.price}}</span>
+                                <p>{{listing.description}}</p>
+                                    <ul class="car-info">
+                                        <li><div class="item"><i><mat-icon>calendar_today</mat-icon></i><p>{{listing.year}}</p></div></li>
+                                        <li><div class="item"><i><mat-icon>speed</mat-icon></i><p>{{listing.horsePower}} hp.</p></div></li>
+                                        <li><div class="item"><i><mat-icon>directions_car</mat-icon></i><p>{{listing.kilometers}} km.</p></div></li>
+                                        <li><div class="item"><i><mat-icon>local_gas_station</mat-icon></i><p>{{listing.engineType}}</p></div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

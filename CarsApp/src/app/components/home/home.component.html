@@ -1,1 +1,7 @@
-<p>home works!</p>
+<p>IsAuth: {{isAuth}}</p>
+<ng-container *ngIf="isAuth">
+  <app-listing-all></app-listing-all>
+</ng-container>
+<ng-container *ngIf="!isAuth">
+  <h1>home works</h1>
+</ng-container>

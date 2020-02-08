@@ -25,6 +25,7 @@ import { CreateListingComponent } from "./components/listing/create-listing/crea
 
 import { environment } from "src/environments/environment";
 import { ListingDetailsComponent } from "./components/listing/listing-details/listing-details.component";
+import {ListingAllComponent} from "./components/listing/listing-all/listing-all.component"
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ListingDetailsComponent } from "./components/listing/listing-details/li
     ToolbarComponent,
     SidebarListComponent,
     CreateListingComponent,
-    ListingDetailsComponent
+    ListingDetailsComponent,
+    ListingAllComponent
   ],
   imports: [
     BrowserModule,

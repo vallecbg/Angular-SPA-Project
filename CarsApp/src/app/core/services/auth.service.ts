@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
   providedIn: "root"
 })
 export class AuthService {
-  private _isAuth: boolean;
+  private _isAuth = false;
 
   isAuthChanged = new Subject<boolean>();
   constructor(
@@ -25,9 +25,13 @@ export class AuthService {
     private toastr: ToastrService
   ) {}
 
+  isAuth() : boolean{
+    return this._isAuth;
+  }
+
   initializeAuthState() {
-    this.dbAuth.authState.subscribe(userdata => {
-      if (userdata) {
+    this.dbAuth.authState.subscribe((userState) => {
+      if (userState) {
         this._isAuth = true;
         this.isAuthChanged.next(true);
       } else {
@@ -55,6 +59,7 @@ export class AuthService {
     this.dbAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(data => {
+        localStorage.setItem('email', data.user.email);
         this.toastr.success("Successfully logged in!", "Success", ToastrConfig);
         this.router.navigate(["/"]);
         console.log(data);
@@ -95,6 +100,7 @@ export class AuthService {
   logout() {
     this.dbAuth.auth.signOut()
     .then(() => {
+      localStorage.clear();
       this.toastr.success("Successfully logged out!", "Success", ToastrConfig);
       this.router.navigate(["/"]);
     })
@@ -105,9 +111,5 @@ export class AuthService {
 
   getUserId() {
     return this.dbAuth.auth.currentUser ? this.dbAuth.auth.currentUser.uid : "";
-  }
-
-  isAuth(): boolean {
-    return this._isAuth;
   }
 }
