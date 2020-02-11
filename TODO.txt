@@ -1,5 +1,6 @@
 ---Major---
 Don't forget to get back canActivate: [AuthGuard] in routing
+Hide header on mobile
 Add footer
 Add unlimited number of images for the listing
 I need to make a method for getting user info in authservice or make another userservice

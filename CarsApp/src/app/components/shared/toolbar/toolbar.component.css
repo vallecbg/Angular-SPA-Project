@@ -1,3 +1,9 @@
+@media (max-width:550px) {
+  a:hover {
+    color: blue;
+  }
+}
+
 a:hover {
   color: orange;
 }
@@ -12,3 +18,4 @@ ul {
   margin-top: auto;
   margin-bottom: auto;
 }
+

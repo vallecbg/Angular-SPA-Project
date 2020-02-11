@@ -25,7 +25,7 @@ import { CreateListingComponent } from "./components/listing/create-listing/crea
 
 import { environment } from "src/environments/environment";
 import { ListingDetailsComponent } from "./components/listing/listing-details/listing-details.component";
-import {ListingAllComponent} from "./components/listing/listing-all/listing-all.component"
+import { ListingAllComponent } from "./components/listing/listing-all/listing-all.component";
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import {ListingAllComponent} from "./components/listing/listing-all/listing-all.
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    BootstrapModule
+    BootstrapModule,
   ],
   //TODO: check
   providers: [AngularFireDatabase],

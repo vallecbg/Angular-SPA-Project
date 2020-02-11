@@ -2,5 +2,13 @@
   <app-listing-all></app-listing-all>
 </ng-container>
 <ng-container *ngIf="!isAuth">
-  <h1>home works</h1>
+  <ngb-carousel *ngIf="imageUrlArray">
+    <div *ngFor="let img of imageUrlArray">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="img">
+        </div>
+      </ng-template>
+    </div>
+  </ngb-carousel>
 </ng-container>
