@@ -12,12 +12,10 @@ export class ListingAllComponent implements OnInit {
   listings: IListing[];
 
   constructor(
-    private listingService: ListingService,
-
+    private listingService: ListingService
   ) { }
 
   ngOnInit() {
-
     this.listingService.getAllListings().subscribe((data) => {
       this.listings = data;
       console.log(this.listings);
