@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-constructor(private authService: AuthService, private router: Router) {
+constructor(
+  private authService: AuthService, 
+  private router: Router,
+  private toastr: ToastrService) {
   
 }
 
@@ -22,6 +27,7 @@ constructor(private authService: AuthService, private router: Router) {
       return true;
     }
 
+    this.toastr.error("You're not logged in!", "Error", ToastrConfig);
     this.router.navigate(["/login"]);
     return false;
   }

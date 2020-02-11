@@ -7,9 +7,3 @@ mat-sidenav {
 mat-sidenav {
   width: 250px;
 }
-
-@media (max-width:550px) {
-  a:hover {
-    color: blue;
-  }
-}

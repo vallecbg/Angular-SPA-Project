@@ -18,7 +18,7 @@ const routes: Route[] = [
       { path: "create", component: CreateListingComponent },
       { path: "details/:id", component: ListingDetailsComponent }
     ], 
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 

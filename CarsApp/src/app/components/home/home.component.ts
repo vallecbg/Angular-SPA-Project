@@ -10,10 +10,10 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit, OnDestroy {
   imageUrlArray = [
     "https://static10.gaadicdn.com/home_slider/Ford-Banner-2.jpg",
-    "https://static10.gaadicdn.com/home_slider/Ford-Banner-1.jpg",
-    "https://buyyourproduct.com/wp-content/uploads/Used-Car-For-Sale-A-Guide-to-Selling-Your-Car-2.jpg",
-    "https://firebasestorage.googleapis.com/v0/b/ng-carsapp.appspot.com/o/slider%2Fcar-banner.jpg?alt=media&token=e4cd4c98-d47e-4c06-ae7f-fa8586c3d0fe",
-    "https://firebasestorage.googleapis.com/v0/b/ng-carsapp.appspot.com/o/slider%2Funnamed.jpg?alt=media&token=927cb907-4149-4875-9a93-98d9dcaa31cd"];
+    // "https://static10.gaadicdn.com/home_slider/Ford-Banner-1.jpg",
+    // "https://buyyourproduct.com/wp-content/uploads/Used-Car-For-Sale-A-Guide-to-Selling-Your-Car-2.jpg",
+    // "https://firebasestorage.googleapis.com/v0/b/ng-carsapp.appspot.com/o/slider%2Fcar-banner.jpg?alt=media&token=e4cd4c98-d47e-4c06-ae7f-fa8586c3d0fe"
+  ];
   
   isAuth: boolean = false;
   isAuthSub: Subscription;
