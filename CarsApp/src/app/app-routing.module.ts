@@ -7,6 +7,7 @@ import { SignupComponent } from "./components/auth/signup/signup.component";
 import { HomeComponent } from "./components/home/home.component";
 import { CreateListingComponent } from "./components/listing/create-listing/create-listing.component";
 import { ListingDetailsComponent } from './components/listing/listing-details/listing-details.component';
+import { EditListingComponent } from './components/listing/edit-listing/edit-listing.component';
 
 const routes: Route[] = [
   { path: "", component: HomeComponent },
@@ -16,9 +17,10 @@ const routes: Route[] = [
   {
     path: "listing", children: [
       { path: "create", component: CreateListingComponent },
-      { path: "details/:id", component: ListingDetailsComponent }
+      { path: "details/:id", component: ListingDetailsComponent },
+      { path: "edit/:id", component: EditListingComponent }
     ], 
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   }
 ];
 
