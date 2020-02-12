@@ -27,7 +27,7 @@ constructor(
       return true;
     }
 
-    this.toastr.error("An error happened!", "Error", ToastrConfig);
+    this.toastr.error("An error happened, please try again!", "Error", ToastrConfig);
     this.router.navigate(["/"]);
     return false;
   }

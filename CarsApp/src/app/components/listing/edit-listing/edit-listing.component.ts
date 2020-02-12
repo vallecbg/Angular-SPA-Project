@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IListing } from "../../shared/models/listing.model";
 import { IUser } from "../../shared/models/User.model";
 import { ListingService } from "src/app/core/services/listing.service";
@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
   templateUrl: "./edit-listing.component.html",
   styleUrls: ["./edit-listing.component.css"]
 })
-export class EditListingComponent implements OnInit {
+export class EditListingComponent implements OnInit, OnDestroy {
   editForm: FormGroup;
   listing: IListing;
   listingId: string;
@@ -68,6 +68,11 @@ export class EditListingComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    console.log("edit listing form is sent");
+    this.editForm.reset();
+  }
+
   private createImage(img) : FormGroup {
     return this.fb.group({
       url: [img.url]
@@ -86,5 +91,38 @@ export class EditListingComponent implements OnInit {
     this.images.removeAt(index);
   }
 
-  editListing() {}
+  editListing() {
+    const {
+      make,
+      model,
+      year,
+      kilometers,
+      horsePower,
+      color,
+      engineType,
+      transmission,
+      images,
+      price,
+      description
+    } = this.editForm.value;
+    
+    const id = this.listingId;
+    const updateDate = new Date();
+
+    this.listingService.editListing({
+      id,
+      make,
+      model,
+      year,
+      kilometers,
+      horsePower,
+      color,
+      engineType,
+      transmission,
+      images,
+      price,
+      description,
+      updateDate
+    })
+  }
 }

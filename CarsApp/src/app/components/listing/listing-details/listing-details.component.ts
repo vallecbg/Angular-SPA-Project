@@ -16,7 +16,7 @@ export class ListingDetailsComponent implements OnInit {
   listing: IListing;
   listingId: string;
   seller: IUser;
-  // images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  isOwner: boolean;
   
 
 
@@ -37,7 +37,7 @@ export class ListingDetailsComponent implements OnInit {
       console.log(this.listing);
       this.authService.getUser(this.listing.sellerId).subscribe((data) => {
         this.seller = data;
-        console.log(this.seller);
+        this.isOwner = this.listingService.isOwner(this.listing.sellerId);
       })
     })
 

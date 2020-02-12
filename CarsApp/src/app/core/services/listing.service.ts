@@ -7,21 +7,25 @@ import { Observable, of } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { ToastrService } from "ngx-toastr";
 import { ToastrConfig } from "src/app/components/shared/models/toastr.config";
+import { ListingEditModel } from 'src/app/components/shared/models/listing-edit.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: "root"
 })
 export class ListingService {
-  //listings: IListing[];
-
   constructor(
     private afDb: AngularFirestore,
+    private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) {}
 
+  isOwner(sellerId: string) : boolean{
+    return sellerId === this.authService.getUserId();
+  }
+
   createListing(payload: CreateListingModel) {
-    //TODO: think about duplicate entities
     this.afDb
       .collection<CreateListingModel>("listings")
       .add(payload)
@@ -62,5 +66,20 @@ export class ListingService {
           return {id, ...data};
         }))
     );
+  }
+
+  editListing(listing: ListingEditModel){
+    this.afDb.doc("listings/" + listing.id).update(listing)
+    .then(data => {
+      this.toastr.success(
+        "Successfully edited listing!",
+        "Success",
+        ToastrConfig
+      );
+      this.router.navigate(["/"]);
+    })
+    .catch(err => {
+      this.toastr.error(err, "Error", ToastrConfig);
+    });
   }
 }
