@@ -27,8 +27,8 @@ constructor(
       return true;
     }
 
-    this.toastr.error("You're not logged in!", "Error", ToastrConfig);
-    this.router.navigate(["/login"]);
+    this.toastr.error("An error happened!", "Error", ToastrConfig);
+    this.router.navigate(["/"]);
     return false;
   }
   

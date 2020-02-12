@@ -4,7 +4,7 @@ import { IUser } from "../../shared/models/User.model";
 import { ListingService } from "src/app/core/services/listing.service";
 import { AuthService } from "src/app/core/services/auth.service";
 import { ActivatedRoute, Params } from "@angular/router";
-import { FormBuilder, Validators, FormGroup, FormArray } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
 
 @Component({
   selector: "app-edit-listing",
@@ -25,6 +25,21 @@ export class EditListingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.editForm = this.fb.group({
+      make: [null, [Validators.required]],
+      model: [null, [Validators.required]],
+      year: [null, null],
+      kilometers: [null, null],
+      horsePower: [null, null],
+      color: [null, null],
+      engineType: [null, null],
+      transmission: [null, null],
+      images: this.fb.array([this.fb.group({url: ''})]),
+      price: [null, [Validators.required]],
+      description: [null, null]
+    });
+
+
     this.route.params.subscribe((params: Params) => {
       this.listingId = params["id"];
     });
@@ -37,24 +52,26 @@ export class EditListingComponent implements OnInit {
         console.log(this.seller);
 
         this.editForm = this.fb.group({
-          make: [null, [Validators.required]],
-          model: [null, [Validators.required]],
-          year: [null, null],
-          kilometers: [null, null],
-          horsePower: [null, null],
-          color: [null, null],
-          engineType: [null, null],
-          transmission: [null, null],
-          images: this.fb.array([this.fb.group({url: ''})]),
-          price: [null, [Validators.required]],
-          description: [null, null]
+          make: [this.listing.make, [Validators.required]],
+          model: [this.listing.model, [Validators.required]],
+          year: [this.listing.year, null],
+          kilometers: [this.listing.kilometers, null],
+          horsePower: [this.listing.horsePower, null],
+          color: [this.listing.color, null],
+          engineType: [this.listing.engineType, null],
+          transmission: [this.listing.transmission, null],
+          images: this.fb.array(this.listing.images.map(img => this.createImage(img))),
+          price: [this.listing.price, [Validators.required]],
+          description: [this.listing.description, null]
         });
       });
     });
+  }
 
-    // if (this.listing) {
-      
-    // }
+  private createImage(img) : FormGroup {
+    return this.fb.group({
+      url: [img.url]
+    });
   }
 
   get images() {
