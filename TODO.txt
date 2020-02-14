@@ -1,32 +1,22 @@
 ---Major---
+Fix listing delete shows error
+Add default image when it's not found
 Add validations on input fields
 Split everything on modules
 Don't forget to get back canActivate: [AuthGuard] in routing
-Hide header on mobile
-Add animation to the carousel
 Add upload and get urls images from firebase
-Add footer
-Add unlimited number of images for the listing
-I need to make a method for getting user info in authservice or make another userservice
-think about duplicate entities in listing creation and where can store the entities
-do i really need IListing and CreateListingModel??
-remove router from signin signup
+Add user info component
 Add password, repeatpassword when register
-Add toastr notifications
-Add image upload for the listing
-Remove router from create listing, signup, signin components
-Remove the duplicate css from signup and signin components
-Check the signup form for birthday hint maybe it should be showing only when it's null
-I can create module for auth components
-Check if i can remove toastr from styles
-Add currency type of listing
+Remove the duplicate css from signup, signin and create listing components
 https://material.angular.io/components/form-field/overview
 
 --Questions--
-Where to put toastr - in service or in components?
 
 ---Minor---
+Add animation to the carousel
+Add footer
 Add particles - https://stackoverflow.com/questions/44293797/how-to-import-and-use-particles-js-in-an-angular-angular2-angular4-app
 Add sms or email address verification
-Add car category
+Add vehicle category
 Add unit tests
+Add currency type of listing
