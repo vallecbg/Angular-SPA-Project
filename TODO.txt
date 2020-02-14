@@ -1,4 +1,6 @@
 ---Major---
+Add validations on input fields
+Split everything on modules
 Don't forget to get back canActivate: [AuthGuard] in routing
 Hide header on mobile
 Add animation to the carousel
