@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="toggleSidenav()">
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
   <div><a routerLink="/">Home</a></div>
-  <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="10px">
+  <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="10px" fxHide.xs>
     <ng-template [ngIf]="!isAuth">
       <li>
         <a routerLink="/login">Login</a>
@@ -17,7 +19,7 @@
         <a routerLink="/listing/create">Create Listing</a>
       </li>
       <li>
-        <a (click)="logout()" style="cursor: pointer;">Logout</a>
+        <a (click)="logout()" class="logoutLink">Logout</a>
       </li>
     </ng-template>
   </ul>
