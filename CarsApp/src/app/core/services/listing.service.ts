@@ -82,4 +82,19 @@ export class ListingService {
       this.toastr.error(err, "Error", ToastrConfig);
     });
   }
+
+  deleteListing(listingId: string){
+    this.afDb.doc("listings/" + listingId).delete()
+    .then(data => {
+      this.toastr.success(
+        "Successfully deleted listing!",
+        "Success",
+        ToastrConfig
+      );
+      this.router.navigate(["/"]);
+    })
+    .catch(err => {
+      this.toastr.error(err, "Error", ToastrConfig);
+    });
+  }
 }

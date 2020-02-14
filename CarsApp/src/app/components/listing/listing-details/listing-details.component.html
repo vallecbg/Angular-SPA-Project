@@ -27,7 +27,7 @@
                     <div class="row">
                     <ng-container *ngIf="isOwner">
                       <button mat-raised-button color="primary" routerLink="/listing/edit/{{listingId}}">Edit Listing</button>
-                      <button mat-raised-button color="primary">Delete Listing</button>
+                      <button mat-raised-button color="primary" (click)="deleteListing(listingId)">Delete Listing</button>
                     </ng-container>
                     </div>
                     <div class="row">

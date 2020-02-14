@@ -40,7 +40,9 @@ export class ListingDetailsComponent implements OnInit {
         this.isOwner = this.listingService.isOwner(this.listing.sellerId);
       })
     })
+  }
 
-    
+  deleteListing(listingId: string){
+    this.listingService.deleteListing(listingId);
   }
 }
