@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
-import { Router } from "@angular/router";
 import { ListingService } from "src/app/core/services/listing.service";
 import { AuthService } from "src/app/core/services/auth.service";
 
 @Component({
   selector: "app-create-listing",
   templateUrl: "./create-listing.component.html",
-  styleUrls: ["./create-listing.component.css"]
+  styleUrls: ['../../shared/styles/create-form.css']
 })
 export class CreateListingComponent implements OnInit, OnDestroy {
   listingForm: FormGroup;
@@ -15,8 +14,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private listingService: ListingService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
