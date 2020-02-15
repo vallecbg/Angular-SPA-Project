@@ -21,12 +21,10 @@ import { FooterComponent } from "./components/shared/footer/footer.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ToolbarComponent } from "./components/shared/toolbar/toolbar.component";
 import { SidebarListComponent } from "./components/shared/sidebar-list/sidebar-list.component";
-import { CreateListingComponent } from "./components/listing/create-listing/create-listing.component";
 
 import { environment } from "src/environments/environment";
-import { ListingDetailsComponent } from "./components/listing/listing-details/listing-details.component";
-import { ListingAllComponent } from "./components/listing/listing-all/listing-all.component";
-import { EditListingComponent } from './components/listing/edit-listing/edit-listing.component';
+
+import {ListingModule} from "./components/listing/listing.module"
 
 @NgModule({
   declarations: [
@@ -36,11 +34,7 @@ import { EditListingComponent } from './components/listing/edit-listing/edit-lis
     FooterComponent,
     HomeComponent,
     ToolbarComponent,
-    SidebarListComponent,
-    CreateListingComponent,
-    ListingDetailsComponent,
-    ListingAllComponent,
-    EditListingComponent
+    SidebarListComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +51,7 @@ import { EditListingComponent } from './components/listing/edit-listing/edit-lis
     AngularFireAuthModule,
     AngularFirestoreModule,
     BootstrapModule,
+    ListingModule
   ],
   //TODO: check
   providers: [AngularFireDatabase],
