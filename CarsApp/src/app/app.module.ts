@@ -9,15 +9,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { MaterialModule } from "./material.module";
 import { BootstrapModule } from "./bootstrap.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFireDatabase } from "@angular/fire/database";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
-
-import { environment } from "src/environments/environment";
 
 import { ListingModule } from "./components/listing/listing.module"
 import { AuthModule } from './components/auth/auth.module';
