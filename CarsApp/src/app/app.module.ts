@@ -25,12 +25,11 @@ import { SidebarListComponent } from "./components/shared/sidebar-list/sidebar-l
 import { environment } from "src/environments/environment";
 
 import {ListingModule} from "./components/listing/listing.module"
+import { AuthModule } from './components/auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent,
-    SignupComponent,
     FooterComponent,
     HomeComponent,
     ToolbarComponent,
@@ -51,7 +50,8 @@ import {ListingModule} from "./components/listing/listing.module"
     AngularFireAuthModule,
     AngularFirestoreModule,
     BootstrapModule,
-    ListingModule
+    ListingModule,
+    AuthModule
   ],
   //TODO: check
   providers: [AngularFireDatabase],

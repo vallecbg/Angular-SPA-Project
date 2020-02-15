@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BootstrapModule } from 'src/app/bootstrap.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { BootstrapModule } from 'src/app/bootstrap.module';
         ReactiveFormsModule,
         CommonModule,
         RouterModule,
-        BootstrapModule
+        BootstrapModule,
+        FlexLayoutModule,
     ],
     exports: [
         CreateListingComponent,
