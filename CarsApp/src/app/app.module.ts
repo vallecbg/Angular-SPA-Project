@@ -15,25 +15,18 @@ import { AngularFireDatabase } from "@angular/fire/database";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { AppComponent } from "./app.component";
-import { SigninComponent } from "./components/auth/signin/signin.component";
-import { SignupComponent } from "./components/auth/signup/signup.component";
-import { FooterComponent } from "./components/shared/footer/footer.component";
 import { HomeComponent } from "./components/home/home.component";
-import { ToolbarComponent } from "./components/shared/toolbar/toolbar.component";
-import { SidebarListComponent } from "./components/shared/sidebar-list/sidebar-list.component";
 
 import { environment } from "src/environments/environment";
 
-import {ListingModule} from "./components/listing/listing.module"
+import { ListingModule } from "./components/listing/listing.module"
 import { AuthModule } from './components/auth/auth.module';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HomeComponent,
-    ToolbarComponent,
-    SidebarListComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +44,8 @@ import { AuthModule } from './components/auth/auth.module';
     AngularFirestoreModule,
     BootstrapModule,
     ListingModule,
-    AuthModule
+    AuthModule,
+    SharedModule
   ],
   //TODO: check
   providers: [AngularFireDatabase],
