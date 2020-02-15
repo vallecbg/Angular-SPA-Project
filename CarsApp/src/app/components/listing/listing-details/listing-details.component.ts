@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IListing } from '../../shared/models/listing.model';
 import { ListingService } from 'src/app/core/services/listing.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IUser } from '../../shared/models/User.model';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrConfig } from '../../shared/models/toastr.config';
 
 @Component({
   selector: 'app-listing-details',
@@ -23,8 +25,7 @@ export class ListingDetailsComponent implements OnInit {
   constructor(
     private listingService: ListingService,
     private authService: AuthService,
-    private route: ActivatedRoute,
-    private config: NgbCarouselConfig
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -32,9 +33,12 @@ export class ListingDetailsComponent implements OnInit {
       this.listingId = params['id'];
     })
 
-    this.listingService.getListing(this.listingId).subscribe((data) => {
+    this.getListing(this.listingId);
+  }
+
+  getListing(listingId: string){
+    this.listingService.getListing(listingId).subscribe((data) => {
       this.listing = data;
-      console.log(this.listing);
       this.authService.getUser(this.listing.sellerId).subscribe((data) => {
         this.seller = data;
         this.isOwner = this.listingService.isOwner(this.listing.sellerId);

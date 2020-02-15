@@ -1,9 +1,8 @@
 ---Major---
-Fix listing delete shows error
 Add default image when it's not found
 Format text in description to have max length listing-all component
 Add validations on input fields
-Split everything on modules
+Split everything on modules -> lising, shared, auth, core
 Add documentation
 Don't forget to get back canActivate: [AuthGuard] in routing
 Add upload and get urls images from firebase

@@ -29,7 +29,7 @@ export class ListingService {
     this.afDb
       .collection<CreateListingModel>("listings")
       .add(payload)
-      .then(data => {
+      .then(() => {
         this.toastr.success(
           "Successfully created listing!",
           "Success",
@@ -49,10 +49,6 @@ export class ListingService {
         console.log(changes);
         const data = changes.payload.data();
         console.log(data);
-        if (!data) {
-          this.toastr.error("The listing is not found!", "Error", ToastrConfig);
-          this.router.navigate(["/"]);
-        }
         return { id, ...data };
       })
     );
@@ -72,7 +68,7 @@ export class ListingService {
 
   editListing(listing: ListingEditModel){
     this.afDb.doc("listings/" + listing.id).update(listing)
-    .then(data => {
+    .then(() => {
       this.toastr.success(
         "Successfully edited listing!",
         "Success",
@@ -87,7 +83,7 @@ export class ListingService {
 
   deleteListing(listingId: string){
     this.afDb.doc("listings/" + listingId).delete()
-    .then(data => {
+    .then(() => {
       this.toastr.success(
         "Successfully deleted listing!",
         "Success",
