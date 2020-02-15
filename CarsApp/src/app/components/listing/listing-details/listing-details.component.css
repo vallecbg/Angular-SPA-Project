@@ -170,3 +170,9 @@ img {
 ngb-carousel {
   background-color: black;
 }
+
+.mail {
+  box-sizing: unset;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}

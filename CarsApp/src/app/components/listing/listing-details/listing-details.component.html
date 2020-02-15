@@ -26,8 +26,10 @@
                   <div class="container">
                     <div class="row">
                     <ng-container *ngIf="isOwner">
-                      <button mat-raised-button color="primary" routerLink="/listing/edit/{{listingId}}">Edit Listing</button>
-                      <button mat-raised-button color="primary" (click)="deleteListing(listingId)">Delete Listing</button>
+                      <div fxFlex fxLayout="row" fxLayoutGap="20px" >
+                        <button mat-raised-button color="primary" routerLink="/listing/edit/{{listingId}}">Edit Listing</button>
+                        <button mat-raised-button color="warn" (click)="deleteListing(listingId)">Delete Listing</button>
+                      </div>
                     </ng-container>
                     </div>
                     <div class="row">
@@ -38,11 +40,13 @@
                         <h5>Name: {{seller.name}}</h5>
                         <div class="contact-info">
                           <div class="row">
-                            <div class="phone col-md-12 col-sm-6 col-xs-6">
-                            <i *ngIf="seller.mobile"><mat-icon>phone_in_talk</mat-icon></i><span>{{seller.mobile}}</span>
-                            </div>
-                            <div class="mail col-md-12 col-sm-6 col-xs-6">
-                            <i *ngIf="seller.email"><mat-icon>email</mat-icon></i><span>{{seller.email}}</span>
+                            <div fxFlex fxLayout="row" >
+                              <div class="phone col-md-6 col-sm-6 col-xs-6">
+                              <i *ngIf="seller.mobile"><mat-icon>phone_in_talk</mat-icon></i><span>{{seller.mobile}}</span>
+                              </div>
+                              <div class="mail col-sm-6 col-xs-6">
+                              <i *ngIf="seller.email"><mat-icon>email</mat-icon></i><span>{{seller.email}}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
