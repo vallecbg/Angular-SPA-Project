@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from 'src/app/core/services/listing.service';
 import { IListing } from '../../shared/models/listing.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listing-all',
@@ -9,17 +10,18 @@ import { IListing } from '../../shared/models/listing.model';
 })
 export class ListingAllComponent implements OnInit {
 
-  listings: IListing[];
+  listings: Observable<IListing[]>;
 
   constructor(
     private listingService: ListingService
   ) { }
 
   ngOnInit() {
-    this.listingService.getAllListings().subscribe((data) => {
-      this.listings = data;
-      console.log(this.listings);
-    })
+    // this.listingService.getAllListings().subscribe((data) => {
+    //   this.listings = data;
+    //   console.log(this.listings);
+    // })
+    this.listings = this.listingService.getAllListings();
   }
 
 }
