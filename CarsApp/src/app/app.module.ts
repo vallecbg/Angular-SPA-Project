@@ -22,6 +22,7 @@ import { environment } from "src/environments/environment";
 import { ListingModule } from "./components/listing/listing.module"
 import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shared.module';
+import { FirebaseModule } from './firebase.module';
 
 @NgModule({
   declarations: [
@@ -39,16 +40,12 @@ import { SharedModule } from './components/shared/shared.module';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
     BootstrapModule,
     ListingModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    FirebaseModule
   ],
-  //TODO: check
-  providers: [AngularFireDatabase],
   bootstrap: [AppComponent],
   //TODO: check if needed
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
