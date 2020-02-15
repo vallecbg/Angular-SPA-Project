@@ -1,5 +1,4 @@
 ---Major---
-Add default image when it's not found
 Format text in description to have max length listing-all component
 Add validations on input fields
 Split everything on modules -> lising, shared, auth, core

@@ -19,6 +19,7 @@ export class ListingDetailsComponent implements OnInit {
   listingId: string;
   seller: IUser;
   isOwner: boolean;
+  defaultImageUrl: string = "https://firebasestorage.googleapis.com/v0/b/ng-carsapp.appspot.com/o/slider%2F1024px-No_image_available.svg.png?alt=media&token=2ee3ae5c-e363-4da5-a9b6-3876c891bc52";
   
 
 

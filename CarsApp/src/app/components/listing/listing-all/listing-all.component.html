@@ -15,10 +15,10 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-center" style="flex-wrap: nowrap;">
+        <div class="row justify-content-center listing-all">
           <ng-container *ngIf="listings">
             <div *ngFor="let listing of listings | async">
-              <div class="col-md-12 col-sm-6">
+              <div fxFlex fxLayout="row" fxLayoutGap="20px" class="col-md-12 col-sm-6">
                 <div class="car-item">
                   <div class="thumb-content">
                     <div class="car-banner">
@@ -27,12 +27,16 @@
                       >
                     </div>
                     <div class="thumb-inner">
-                      <a routerLink="/listing/details/{{ listing.id }}"
-                        ><img
+                      <a routerLink="/listing/details/{{ listing.id }}">
+                        <img
                           *ngIf="listing.images"
                           [src]="listing.images[0].url"
-                          alt=""
-                      /></a>
+                          alt=""/>
+                        <img
+                          *ngIf="listing.images[0].url === ''"
+                          [src]="defaultImageUrl"
+                          alt=""/>
+                        </a>
                     </div>
                   </div>
                   <div class="down-content">

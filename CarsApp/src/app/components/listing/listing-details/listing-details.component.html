@@ -6,10 +6,16 @@
 					<div class="col-md-6">
 						<div id="single-car">
               <ngb-carousel *ngIf="listing.images">
+                console.log(listing.images);
                 <div *ngFor="let img of listing.images">
-                  <ng-template *ngIf="img.url !== ''" ngbSlide>
+                  <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                      <img [src]="img.url">
+                      <div *ngIf="img.url !== ''">
+                        <img  [src]="img.url">
+                      </div>
+                      <div *ngIf="img.url === ''">
+                        <img  [src]="defaultImageUrl">
+                      </div>
                     </div>
                   </ng-template>
                 </div>

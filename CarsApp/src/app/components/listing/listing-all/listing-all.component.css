@@ -737,3 +737,13 @@ section.top-slider-features .slider-top-features .owl-dots {
     margin-top: 30px;
     margin-bottom: 40px
 }
+
+.listing-all{
+    flex-wrap: nowrap;
+}
+
+@media (max-width:574px) {
+    .listing-all{
+        flex-wrap: wrap;
+    }
+}
