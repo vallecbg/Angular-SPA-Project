@@ -17,6 +17,7 @@ import { ListingModule } from "./components/listing/listing.module"
 import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shared.module';
 import { FirebaseModule } from './firebase.module';
+import { UserModule } from './components/user/user.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FirebaseModule } from './firebase.module';
     ListingModule,
     AuthModule,
     SharedModule,
-    FirebaseModule
+    FirebaseModule,
+    UserModule
   ],
   bootstrap: [AppComponent],
   //TODO: check if needed

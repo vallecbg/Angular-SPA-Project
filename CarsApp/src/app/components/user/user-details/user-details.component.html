@@ -1,0 +1,24 @@
+<section *ngIf="user">
+  <div class="recent-cars">
+    <div class="container-fluid">
+      <div class="recent-car-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div class="icon">
+                <i class="fa fa-car"><mat-icon>supervised_user_circle</mat-icon></i>
+              </div>
+              <div class="text-content">
+                <h2>My Profile</h2>
+                <span>Name: {{user.name}}</span> <br/>
+                <span>Phone: {{user.mobile}}</span> <br/>
+                <span>Email: {{user.email}}</span> <br/>
+                <button mat-raised-button color="primary" routerLink="/">Edit Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
