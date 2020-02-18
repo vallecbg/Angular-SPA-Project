@@ -20,7 +20,7 @@
             <h1>There are no listings available!</h1>
           </ng-container>
           <ng-container *ngIf="listings">
-            <div *ngFor="let listing of listings | async">
+            <div *ngFor="let listing of listings">
               <div fxFlex fxLayout="row" fxLayoutGap="20px" class="col-md-12 col-sm-6">
                 <div class="car-item">
                   <div class="thumb-content">

@@ -75,11 +75,6 @@
 									</ul>
 								</div>
 							</div>
-							<!-- <div class="similar-info">
-								<div class="primary-button">
-									<a href="#">Add Offer <i class="fa fa-dollar"></i></a>
-								</div>
-							</div> -->
 						</div>
 					</div>
         </div>
@@ -87,91 +82,9 @@
           <h2>Additional info</h2>
           <p>{{listing.description}}</p>
         </div>
-        <!-- <section>
-          <div class="more-details">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="item">
-                    <div class="sep-section-heading">
-                      <h2>Seller <em>Information</em></h2>
-                    </div>
-                  <h4>Name: {{seller.name}}</h4>
-                    <div class="contact-info">
-                      <div class="row">
-                        <div class="phone col-md-12 col-sm-6 col-xs-6">
-                        <i *ngIf="seller.mobile"><mat-icon>phone_in_talk</mat-icon></i><span>{{seller.mobile}}</span>
-                        </div>
-                        <div class="mail col-md-12 col-sm-6 col-xs-6">
-                        <i *ngIf="seller.email"><mat-icon>email</mat-icon></i><span>{{seller.email}}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> -->
 			</div>
 		</div>
   </div>
   
   
 </ng-container>
-
-<!-- <ng-container *ngIf="listing">
-  <mat-grid-list cols="2">
-    <mat-grid-tile>
-      <mat-card class="listing-details">
-        <mat-card-header >
-          <mat-card-title>
-            <span class="listingHeaderInfo">{{ listing.make }} {{ listing.model }}</span>
-            <span class="listingPrice">${{ listing.price }}</span>
-          </mat-card-title>
-        </mat-card-header>
-        <div *ngIf="listing.imageUrl">
-          <img mat-card-image [src]="listing.imageUrl" />
-        </div>
-        <mat-card-content>
-          <ul class="listingData">
-            <li>Make:</li>
-            <li>{{ listing.make }}</li>
-            <li>Model:</li>
-            <li>{{ listing.model }}</li>
-
-            <div *ngIf="listing.year">
-              <li>Year of manufacture:</li>
-              <li>{{ listing.year }}</li>
-            </div>
-
-            <div *ngIf="listing.engineType">
-              <li>Engine type:</li>
-              <li>{{ listing.engineType }}</li>
-            </div>
-
-            <div *ngIf="listing.horsePower">
-              <li>Horse power:</li>
-              <li>{{ listing.horsePower }} hp.</li>
-            </div>
-
-            <div *ngIf="listing.transmission">
-              <li>Transmission type:</li>
-              <li>{{ listing.transmission }}</li>
-            </div>
-
-            <div *ngIf="listing.kilometers">
-              <li>Mileage:</li>
-              <li>{{ listing.kilometers }}</li>
-            </div>
-
-            <div *ngIf="listing.color">
-              <li>Color:</li>
-              <li>{{ listing.color }}</li>
-            </div>
-          </ul>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</ng-container> -->
