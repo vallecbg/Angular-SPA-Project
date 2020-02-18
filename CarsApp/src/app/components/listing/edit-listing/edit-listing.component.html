@@ -20,14 +20,20 @@
 
         <mat-form-field class="example-full-width">
           <input formControlName="year" matInput type="number" placeholder="Year...">
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="editForm.get('year').hasError('required')">Year is required.</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <input formControlName="kilometers" matInput type="number" placeholder="Kilometers...">
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="editForm.get('kilometers').hasError('required')">Kilometers are required.</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <input formControlName="horsePower" matInput type="number" placeholder="Horse power...">
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="editForm.get('horsePower').hasError('required')">Horse power is required.</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
@@ -36,6 +42,8 @@
         
         <mat-form-field class="example-full-width">
           <input formControlName="engineType" matInput type="text" placeholder="Engine type...">
+          <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="editForm.get('engineType').hasError('required')">Engine type is required.</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">

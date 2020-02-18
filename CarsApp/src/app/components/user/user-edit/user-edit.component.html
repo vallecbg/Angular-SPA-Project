@@ -14,6 +14,7 @@
 
         <mat-form-field class="example-full-width">
           <input formControlName="mobile" matInput type="text" placeholder="Mobile Number...">
+          <mat-hint>Required</mat-hint>
           <mat-error *ngIf="editForm.get('mobile').hasError('required')">Mobile is required.</mat-error>
           <mat-error *ngIf="editForm.get('mobile').hasError('minlength')">Mobile must be at least 6 symbols.</mat-error>
         </mat-form-field>
