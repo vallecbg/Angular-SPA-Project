@@ -49,7 +49,6 @@ export class AuthService {
         this.pushUserData({email, name, mobile});
         this.toastr.success("Successfully registered!", "Success", ToastrConfig);
         this.router.navigate(["/"]);
-        console.log(data);
       })
       .catch(err => {
         this.toastr.error(err, "Error", ToastrConfig);
@@ -63,7 +62,6 @@ export class AuthService {
         localStorage.setItem('email', data.user.email);
         this.toastr.success("Successfully logged in!", "Success", ToastrConfig);
         this.router.navigate(["/"]);
-        console.log(data);
       })
       .catch(err => {
         this.toastr.error(err, "Error", ToastrConfig);

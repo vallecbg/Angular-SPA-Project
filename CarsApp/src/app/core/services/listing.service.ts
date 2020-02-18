@@ -46,9 +46,7 @@ export class ListingService {
     const listingDocuments = this.afDb.doc<IListing>("listings/" + id);
     return listingDocuments.snapshotChanges().pipe(
       map(changes => {
-        console.log(changes);
         const data = changes.payload.data();
-        console.log(data);
         return { id, ...data };
       })
     );

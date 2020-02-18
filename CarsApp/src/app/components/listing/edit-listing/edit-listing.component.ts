@@ -73,7 +73,6 @@ export class EditListingComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log("edit listing form is sent");
     this.editForm.reset();
   }
 
