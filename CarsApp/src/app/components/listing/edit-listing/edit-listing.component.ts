@@ -53,19 +53,21 @@ export class EditListingComponent implements OnInit, OnDestroy {
       this.authService.getUser(this.listing.sellerId).subscribe(data => {
         this.seller = data;
 
-        this.editForm = this.fb.group({
-          make: [this.listing.make, [Validators.required]],
-          model: [this.listing.model, [Validators.required]],
-          year: [this.listing.year, Validators.required],
-          kilometers: [this.listing.kilometers, Validators.required],
-          horsePower: [this.listing.horsePower, Validators.required],
-          color: [this.listing.color, null],
-          engineType: [this.listing.engineType, Validators.required],
-          transmission: [this.listing.transmission, null],
-          images: this.fb.array(this.listing.images.map(img => this.createImage(img))),
-          price: [this.listing.price, [Validators.required]],
-          description: [this.listing.description, null]
-        });
+        if(this.listing.images){
+          this.editForm = this.fb.group({
+            make: [this.listing.make, [Validators.required]],
+            model: [this.listing.model, [Validators.required]],
+            year: [this.listing.year, Validators.required],
+            kilometers: [this.listing.kilometers, Validators.required],
+            horsePower: [this.listing.horsePower, Validators.required],
+            color: [this.listing.color, null],
+            engineType: [this.listing.engineType, Validators.required],
+            transmission: [this.listing.transmission, null],
+            images: this.fb.array(this.listing.images.map(img => this.createImage(img))),
+            price: [this.listing.price, [Validators.required]],
+            description: [this.listing.description, null]
+          });
+        }
       });
     });
   }
