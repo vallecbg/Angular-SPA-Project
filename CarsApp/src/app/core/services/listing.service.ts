@@ -66,6 +66,18 @@ export class ListingService {
     );
   }
 
+  getUserListings(userId: string){
+    const listingDocuments = this.afDb.collection<IListing>("listings", ref => ref.where('sellerId', '==', userId)).snapshotChanges();
+    return listingDocuments.pipe(
+      map(actions => actions.map(
+        a => {
+          const data = a.payload.doc.data() as IListing;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        }))
+    );
+  }
+
   editListing(listing: ListingEditModel){
     this.afDb.doc("listings/" + listing.id).update(listing)
     .then(() => {

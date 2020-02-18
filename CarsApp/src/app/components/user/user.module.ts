@@ -7,11 +7,13 @@ import { BootstrapModule } from 'src/app/bootstrap.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserListingsComponent } from './user-listings/user-listings.component';
 
 @NgModule({
     declarations: [
         UserDetailsComponent,
-        UserEditComponent
+        UserEditComponent,
+        UserListingsComponent
     ],
     imports: [
         MaterialModule,
@@ -24,7 +26,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     ],
     exports: [
         UserDetailsComponent,
-        UserEditComponent
+        UserEditComponent,
+        UserListingsComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
   })

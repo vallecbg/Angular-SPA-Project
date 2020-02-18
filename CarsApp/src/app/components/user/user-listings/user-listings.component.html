@@ -1,0 +1,73 @@
+<section>
+  <div class="recent-cars">
+    <div class="container-fluid">
+      <div class="recent-car-content">
+        <div class="row justify-content-center listing-all">
+          <ng-container *ngIf="listings && listings.length === 0">
+            <h1>There are no listings!</h1>
+          </ng-container>
+          <ng-container *ngIf="listings">
+            <div *ngFor="let listing of listings">
+              <div fxFlex fxLayout="row" fxLayoutGap="20px" class="col-md-12 col-sm-6">
+                <div class="car-item">
+                  <div class="thumb-content">
+                    <div class="car-banner">
+                      <a routerLink="/listing/details/{{ listing.id }}"
+                        >For Sale</a
+                      >
+                    </div>
+                    <div class="thumb-inner">
+                      <a routerLink="/listing/details/{{ listing.id }}">
+                        <img
+                          *ngIf="listing.images"
+                          [src]="listing.images[0].url"
+                          alt=""/>
+                        <img
+                          *ngIf="listing.images[0].url === ''"
+                          [src]="defaultImageUrl"
+                          alt=""/>
+                        </a>
+                    </div>
+                  </div>
+                  <div class="down-content">
+                    <a routerLink="/listing/details/{{ listing.id }}"
+                      ><h4>{{ listing.make }} {{ listing.model }}</h4></a
+                    >
+                    <span>${{ listing.price }}</span>
+                    <p>{{ listing.description }}</p>
+                    <ul class="car-info">
+                      <li>
+                        <div class="item">
+                          <i><mat-icon>calendar_today</mat-icon></i>
+                          <p>{{ listing.year }}</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item">
+                          <i><mat-icon>speed</mat-icon></i>
+                          <p>{{ listing.horsePower }} hp.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item">
+                          <i><mat-icon>directions_car</mat-icon></i>
+                          <p>{{ listing.kilometers }} km.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item">
+                          <i><mat-icon>local_gas_station</mat-icon></i>
+                          <p>{{ listing.engineType }}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

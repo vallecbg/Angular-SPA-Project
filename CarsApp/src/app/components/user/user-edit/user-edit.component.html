@@ -12,13 +12,6 @@
           <mat-error *ngIf="editForm.get('name').hasError('required')">Name is required.</mat-error>
         </mat-form-field>
 
-        <!-- <mat-form-field class="example-full-width">
-          <input formControlName="email" matInput type="email" placeholder="Email...">
-          <mat-hint>Required</mat-hint>
-          <mat-error *ngIf="editForm.get('email').hasError('required')">Email is required.</mat-error>
-          <mat-error *ngIf="editForm.get('email').hasError('email')">Email is invalid.</mat-error>
-        </mat-form-field> -->
-
         <mat-form-field class="example-full-width">
           <input formControlName="mobile" matInput type="text" placeholder="Mobile Number...">
           <mat-error *ngIf="editForm.get('mobile').hasError('required')">Mobile is required.</mat-error>
