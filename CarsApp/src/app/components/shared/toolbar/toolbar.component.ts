@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class ToolbarComponent implements OnInit {
   @Output() onToggleSidenav = new EventEmitter<void>();
   isAuth: boolean;
+  userId: string;
 
   constructor(
     private authService: AuthService
@@ -17,7 +18,12 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
     this.authService.isAuthChanged.subscribe((data) => {
       this.isAuth = data;
+      this.getUserId();
     })
+  }
+
+  getUserId(){
+    this.userId = this.authService.getUserId();
   }
 
   toggleSidenav(){

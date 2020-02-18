@@ -10,6 +10,7 @@ import { IUser } from "src/app/components/shared/models/User.model";
 import { ToastrService } from 'ngx-toastr';
 import { ToastrConfig } from 'src/app/components/shared/models/toastr.config';
 import { map } from 'rxjs/operators';
+import { UserEditModel } from 'src/app/components/shared/models/user-edit.model';
 
 @Injectable({
   providedIn: "root"
@@ -95,6 +96,21 @@ export class AuthService {
           const data = changes.payload.data();
           return {...data};
         }))
+  }
+
+  editUser(user: UserEditModel){
+    this.afDb.doc("users/" + user.uid).update(user)
+    .then(() => {
+      this.toastr.success(
+        "Successfully edited user!",
+        "Success",
+        ToastrConfig
+      );
+      this.router.navigate([`/user/details/${user.uid}`]);
+    })
+    .catch(err => {
+      this.toastr.error(err, "Error", ToastrConfig);
+    });
   }
 
   logout() {

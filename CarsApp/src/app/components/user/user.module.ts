@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { BootstrapModule } from 'src/app/bootstrap.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
     declarations: [
-        UserDetailsComponent
+        UserDetailsComponent,
+        UserEditComponent
     ],
     imports: [
         MaterialModule,
@@ -21,7 +23,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
         FlexLayoutModule,
     ],
     exports: [
-        UserDetailsComponent
+        UserDetailsComponent,
+        UserEditComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
   })

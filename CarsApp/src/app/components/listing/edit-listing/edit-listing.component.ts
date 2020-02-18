@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
 @Component({
   selector: "app-edit-listing",
   templateUrl: "./edit-listing.component.html",
-  styleUrls: ["./edit-listing.component.css"]
+  styleUrls: ['../../shared/styles/create-form.css']
 })
 export class EditListingComponent implements OnInit, OnDestroy {
   editForm: FormGroup;
@@ -44,12 +44,14 @@ export class EditListingComponent implements OnInit, OnDestroy {
       this.listingId = params["id"];
     });
 
+    this.setForm();
+  }
+
+  setForm() {
     this.listingService.getListing(this.listingId).subscribe(data => {
       this.listing = data;
       this.authService.getUser(this.listing.sellerId).subscribe(data => {
         this.seller = data;
-        console.log(this.listing);
-        console.log(this.seller);
 
         this.editForm = this.fb.group({
           make: [this.listing.make, [Validators.required]],
