@@ -2,12 +2,9 @@
 core.js:6014 ERROR TypeError: Cannot read property 'map' of undefined when deleting listing
 Add verify password and signupnewuser email
 Format text in description to have max length listing-all component
-Add validations on input fields
 Add documentation
 Don't forget to get back canActivate: [AuthGuard] in routing
 Add upload and get urls images from firebase
-Add user info component
-Add password, repeatpassword when register
 Create 404 page
 https://material.angular.io/components/form-field/overview
 
