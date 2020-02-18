@@ -106,7 +106,7 @@ export class AuthService {
         "Success",
         ToastrConfig
       );
-      this.router.navigate([`/user/details/${user.uid}`]);
+      this.router.navigate(['/user/details', user.uid]);
     })
     .catch(err => {
       this.toastr.error(err, "Error", ToastrConfig);
