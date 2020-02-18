@@ -16,6 +16,9 @@
           </div>
         </div>
         <div class="row justify-content-center listing-all">
+          <ng-container *ngIf="listings && listings.length === 0">
+            <h1>There are no listings available!</h1>
+          </ng-container>
           <ng-container *ngIf="listings">
             <div *ngFor="let listing of listings | async">
               <div fxFlex fxLayout="row" fxLayoutGap="20px" class="col-md-12 col-sm-6">
