@@ -10,6 +10,7 @@ import { ListingDetailsComponent } from './components/listing/listing-details/li
 import { EditListingComponent } from './components/listing/edit-listing/edit-listing.component';
 import { UserDetailsComponent } from './components/user/user-details/user-details.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Route[] = [
   { path: "", component: HomeComponent },
@@ -30,7 +31,8 @@ const routes: Route[] = [
       { path: "edit/:id", component: UserEditComponent },
     ], 
     //canActivate: [AuthGuard]
-  }
+  },
+  {path: "**", component: NotFoundComponent}
 ];
 
 @NgModule({

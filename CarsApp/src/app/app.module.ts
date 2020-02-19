@@ -18,11 +18,13 @@ import { AuthModule } from './components/auth/auth.module';
 import { SharedModule } from './components/shared/shared.module';
 import { FirebaseModule } from './firebase.module';
 import { UserModule } from './components/user/user.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
