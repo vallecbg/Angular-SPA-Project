@@ -18,7 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         ReactiveFormsModule,
         CommonModule,
         RouterModule,
-        FlexLayoutModule,
+        FlexLayoutModule
     ],
     exports: [
         SigninComponent,

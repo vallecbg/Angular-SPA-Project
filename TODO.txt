@@ -1,5 +1,4 @@
 ---Major---
-Split routing
 Add verify password and signupnewuser email
 Format text in description to have max length listing-all component
 Add documentation

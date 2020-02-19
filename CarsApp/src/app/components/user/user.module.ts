@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserListingsComponent } from './user-listings/user-listings.component';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { UserListingsComponent } from './user-listings/user-listings.component';
         RouterModule,
         BootstrapModule,
         FlexLayoutModule,
+        UserRoutingModule
     ],
     exports: [
         UserDetailsComponent,

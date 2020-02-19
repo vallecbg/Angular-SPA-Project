@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BootstrapModule } from 'src/app/bootstrap.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ListingRoutingModule } from './listing-routing.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         RouterModule,
         BootstrapModule,
         FlexLayoutModule,
+        ListingRoutingModule
     ],
     exports: [
         CreateListingComponent,
