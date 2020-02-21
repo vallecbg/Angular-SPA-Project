@@ -15,12 +15,12 @@ const routes: Route[] = [
   {
     path: "listing",
     loadChildren: () => import('./components/listing/listing.module').then(x => x.ListingModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: "user",
     loadChildren: () => import('./components/user/user.module').then(x => x.UserModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {path: "**", component: NotFoundComponent}
 ];

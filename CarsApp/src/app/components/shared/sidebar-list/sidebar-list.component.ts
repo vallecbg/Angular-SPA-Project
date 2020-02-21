@@ -8,13 +8,19 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class SidebarListComponent implements OnInit {
   isAuth: boolean;
+  userId: string;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.isAuthChanged.subscribe((data) => {
       this.isAuth = data;
+      this.getUserId();
     })
+  }
+
+  getUserId(){
+    this.userId = this.authService.getUserId();
   }
 
   logout(){
