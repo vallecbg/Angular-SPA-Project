@@ -57,7 +57,6 @@
           <div *ngFor="let item of images.controls; let imageIndex=index" [formGroupName]="imageIndex">
             <mat-form-field class="example-full-width">
             <input formControlName="url" matInput type="text" placeholder="Image Url..."/>
-            <mat-error *ngIf="listingForm.get('url').hasError('required')">Images are required.</mat-error>
             <button type="button" color="warn" mat-mini-fab matSuffix (click)="deleteImage(imageIndex)"><mat-icon>delete</mat-icon></button>
             </mat-form-field>
             </div>
