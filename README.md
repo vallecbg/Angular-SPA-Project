@@ -3,10 +3,11 @@
 
 ## Type - Website for Cars Listings
 
-Demo: soon
+Demo: https://vallecbg.github.io/Angular-SPA-Project/
 
 ## Demo Users
-soon
+Email: test@mail.com
+Password: 123456
 
 ## Description
 CarsApp is the site where you can find your dream car only by 1 click.
