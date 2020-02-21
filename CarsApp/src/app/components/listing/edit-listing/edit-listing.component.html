@@ -21,6 +21,8 @@
         <mat-form-field class="example-full-width">
           <input formControlName="year" matInput type="number" placeholder="Year...">
           <mat-hint>Required</mat-hint>
+          <mat-error *ngIf="editForm.get('year').hasError('min')">Year must be at least 1900.</mat-error>
+          <mat-error *ngIf="editForm.get('year').hasError('max')">Year must be not higher than 2020.</mat-error>
           <mat-error *ngIf="editForm.get('year').hasError('required')">Year is required.</mat-error>
         </mat-form-field>
 

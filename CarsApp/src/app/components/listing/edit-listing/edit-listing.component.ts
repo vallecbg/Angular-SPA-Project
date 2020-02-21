@@ -28,7 +28,7 @@ export class EditListingComponent implements OnInit, OnDestroy {
     this.editForm = this.fb.group({
       make: [null, [Validators.required]],
       model: [null, [Validators.required]],
-      year: [null, Validators.required],
+      year: [null, [Validators.required, Validators.min(1900), Validators.max(2020)]],
       kilometers: [null, Validators.required],
       horsePower: [null, Validators.required],
       color: [null, null],
@@ -57,7 +57,7 @@ export class EditListingComponent implements OnInit, OnDestroy {
           this.editForm = this.fb.group({
             make: [this.listing.make, [Validators.required]],
             model: [this.listing.model, [Validators.required]],
-            year: [this.listing.year, Validators.required],
+            year: [this.listing.year, [Validators.required, Validators.min(1900), Validators.max(2020)]],
             kilometers: [this.listing.kilometers, Validators.required],
             horsePower: [this.listing.horsePower, Validators.required],
             color: [this.listing.color, null],

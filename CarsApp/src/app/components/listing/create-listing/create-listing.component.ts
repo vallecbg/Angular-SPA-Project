@@ -21,7 +21,7 @@ export class CreateListingComponent implements OnInit, OnDestroy {
     this.listingForm = this.fb.group({
       make: [null, [Validators.required]],
       model: [null, [Validators.required]],
-      year: [null, Validators.required],
+      year: [null, [Validators.required, Validators.min(1900), Validators.max(2020)]],
       kilometers: [null, Validators.required],
       horsePower: [null, Validators.required],
       color: [null, null],
