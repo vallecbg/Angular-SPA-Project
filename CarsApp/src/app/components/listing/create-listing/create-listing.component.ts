@@ -65,7 +65,6 @@ export class CreateListingComponent implements OnInit, OnDestroy {
       description
     } = this.listingForm.value;
 
-    debugger;
     if(images.length === 0) {
       images.push({url: ''});
     }
