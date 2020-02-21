@@ -1,7 +1,5 @@
 ---Major---
 Format text in description to have max length listing-all component
-Add documentation
-Don't forget to get back canActivate: [AuthGuard] in routing
 Add upload and get urls images from firebase
 
 --Questions--
